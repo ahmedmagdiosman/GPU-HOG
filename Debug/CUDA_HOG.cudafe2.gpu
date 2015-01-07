@@ -1,0 +1,1238 @@
+# 29 "../src/Image3.hpp"
+struct Image3;
+# 27 "../src/Vec2.hpp"
+struct Vec2;
+# 52 "../src/CUDA_HOG.hpp"
+struct HOGDescriptor;
+# 56 "../src/CUDA_HOG.hpp"
+struct CUDA_HOG;
+# 212 "/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h" 3
+typedef unsigned long size_t;
+#include "crt/device_runtime.h"
+# 29 "../src/Image3.hpp"
+struct Image3 {
+# 50 "../src/Image3.hpp"
+struct uchar3 *data;
+# 51 "../src/Image3.hpp"
+int imWidth;
+# 52 "../src/Image3.hpp"
+int imHeight;
+# 53 "../src/Image3.hpp"
+size_t imSize;};
+# 27 "../src/Vec2.hpp"
+struct Vec2 {
+# 46 "../src/Vec2.hpp"
+struct float2 *data;
+# 47 "../src/Vec2.hpp"
+int imWidth;
+# 48 "../src/Vec2.hpp"
+int imHeight;
+# 49 "../src/Vec2.hpp"
+size_t imSize;};
+# 52 "../src/CUDA_HOG.hpp"
+struct HOGDescriptor {
+# 53 "../src/CUDA_HOG.hpp"
+float bin[36];};
+# 54 "../src/CUDA_HOG.hpp"
+typedef struct HOGDescriptor HOGDescriptor;
+# 56 "../src/CUDA_HOG.hpp"
+struct CUDA_HOG {
+# 66 "../src/CUDA_HOG.hpp"
+struct Image3 img;
+# 67 "../src/CUDA_HOG.hpp"
+struct Vec2 imgGradient;
+# 68 "../src/CUDA_HOG.hpp"
+HOGDescriptor *hogDsc;
+# 69 "../src/CUDA_HOG.hpp"
+unsigned numWindowsX;
+# 70 "../src/CUDA_HOG.hpp"
+unsigned numWindowsY;
+# 71 "../src/CUDA_HOG.hpp"
+unsigned ftrSize;
+# 71 "../src/CUDA_HOG.hpp"
+char __nv_no_debug_dummy_end_padding_0[4];};
+# 180 "/usr/local/cuda-6.5/bin/..//include/crt/device_runtime.h" 3
+___device__(extern  __no_sc__) __attribute__((__externally_visible__)) __attribute__((visibility("default"))) void *malloc(size_t);
+# 181 "/usr/local/cuda-6.5/bin/..//include/crt/device_runtime.h" 3
+___device__(extern  __no_sc__) __attribute__((__externally_visible__)) __attribute__((__nothrow__)) __attribute__((visibility("default"))) void free(void *);
+#if !defined(__CUDABE__)
+# 235 "/usr/local/cuda-6.5/bin/..//include/math_functions.h"
+ __device_builtin__ ___device__(extern  __no_sc__) __attribute__((__nothrow__)) __attribute__((__const__)) float fabsf(float);
+#endif
+#if !defined(__CUDABE__)
+# 256 "/usr/local/cuda-6.5/bin/..//include/math_functions.h"
+ __device_builtin__ ___device__(extern  __no_sc__) __attribute__((__nothrow__)) __attribute__((__const__)) float fminf(float, float);
+#endif
+#if !defined(__CUDABE__)
+# 300 "/usr/local/cuda-6.5/bin/..//include/math_functions.h"
+ __device_builtin__ ___device__(extern  __no_sc__) __attribute__((__nothrow__)) __attribute__((__const__)) float fmaxf(float, float);
+#endif
+#if !defined(__CUDABE__)
+# 7052 "/usr/local/cuda-6.5/bin/..//include/math_functions.h"
+ __device_builtin__ ___device__(extern  __no_sc__) __attribute__((__nothrow__)) float atan2f(float, float);
+#endif
+#if !defined(__CUDABE__)
+# 7839 "/usr/local/cuda-6.5/bin/..//include/math_functions.h"
+ __device_builtin__ ___device__(extern  __no_sc__) __attribute__((__nothrow__)) float sqrtf(float);
+#endif
+#if !defined(__CUDABE__)
+# 131 "/usr/local/cuda-6.5/bin/..//include/device_functions.h"
+ __device_builtin__ ___device__(extern  __no_sc__) void __syncthreads(void);
+#endif
+# 43 "../src/Image3.hpp"
+___device__(extern  __no_sc__) void _ZN6Image3C1ERKS_(struct Image3 *const, const struct Image3 *);
+# 47 "../src/Image3.hpp"
+___device__(extern  __no_sc__) void _ZN6Image3D1Ev(struct Image3 *const);
+# 40 "../src/Vec2.hpp"
+___device__(extern  __no_sc__) void _ZN4Vec2C1Eii(struct Vec2 *const, int, int);
+# 42 "../src/Vec2.hpp"
+___device__(extern  __no_sc__) void _ZN4Vec2D1Ev(struct Vec2 *const);
+# 164 "/usr/local/cuda-6.5/bin/..//include/vector_functions.h"
+___device__(static  __no_sc__) __inline__ struct uint2 _Z10make_uint2jj(unsigned, unsigned);
+# 9025 "/usr/local/cuda-6.5/bin/..//include/math_functions.h"
+___device__(static  __no_sc__) __inline__ float _Z3minff(float, float);
+# 9080 "/usr/local/cuda-6.5/bin/..//include/math_functions.h"
+___device__(static  __no_sc__) __inline__ float _Z3maxff(float, float);
+# 28 "../src/CUDA_HOG.cu"
+__global__ __var_used__ extern void _ZN4CUDA15computeGradientEPK6Image3P4Vec2(const struct Image3 *, struct Vec2 *);
+# 135 "../src/CUDA_HOG.cu"
+__global__ __var_used__ extern void _ZN4CUDA16computeHistogramEPK4Vec2P13HOGDescriptor5uint2(const struct Vec2 *, HOGDescriptor *, const struct uint2);
+# 246 "../src/CUDA_HOG.cu"
+__global__ __var_used__ extern void _ZN4CUDA18normalizeHistogramEP13HOGDescriptor(HOGDescriptor *);
+# 419 "/usr/local/cuda-6.5/bin/..//include/vector_types.h"
+___device__(extern  __no_sc__) __inline__ void _ZN4dim3C1Ejjj(struct dim3 *const, unsigned, unsigned, unsigned);
+# 421 "/usr/local/cuda-6.5/bin/..//include/vector_types.h"
+___device__(extern  __no_sc__) __inline__ void _ZN4dim3C2Ejjj(struct dim3 *const, unsigned, unsigned, unsigned);
+# 82 "../src/Image3.hpp"
+___device__(extern  __no_sc__) __inline__ int _ZNK6Image35widthEv(const struct Image3 *const);
+# 85 "../src/Image3.hpp"
+___device__(extern  __no_sc__) __inline__ int _ZNK6Image36heightEv(const struct Image3 *const);
+# 88 "../src/Image3.hpp"
+___device__(extern  __no_sc__) __inline__ size_t _ZNK6Image34sizeEv(const struct Image3 *const);
+# 92 "../src/Image3.hpp"
+___device__(extern  __no_sc__) __inline__ struct uchar3 *_ZNK6Image311getConstPtrEv(const struct Image3 *const);
+# 103 "../src/Image3.hpp"
+___device__(extern  __no_sc__) __inline__ struct uchar3 *_ZNK6Image311getConstPtrEjj(const struct Image3 *const, unsigned, unsigned);
+# 60 "../src/Vec2.hpp"
+___device__(extern  __no_sc__) __inline__ int _ZNK4Vec25widthEv(const struct Vec2 *const);
+# 63 "../src/Vec2.hpp"
+___device__(extern  __no_sc__) __inline__ int _ZNK4Vec26heightEv(const struct Vec2 *const);
+# 66 "../src/Vec2.hpp"
+___device__(extern  __no_sc__) __inline__ size_t _ZNK4Vec24sizeEv(const struct Vec2 *const);
+# 78 "../src/Vec2.hpp"
+___device__(extern  __no_sc__) __inline__ struct float2 *_ZN4Vec26getPtrEjj(struct Vec2 *const, unsigned, unsigned);
+# 81 "../src/Vec2.hpp"
+___device__(extern  __no_sc__) __inline__ struct float2 *_ZNK4Vec211getConstPtrEjj(const struct Vec2 *const, unsigned, unsigned);
+# 312 "../src/CUDA_HOG.cu"
+___device__(extern  __no_sc__) void _ZN8CUDA_HOGC1ERK6Image3(struct CUDA_HOG *const, const struct Image3 *);
+# 325 "../src/CUDA_HOG.cu"
+___device__(extern  __no_sc__) void _ZN8CUDA_HOGC2ERK6Image3(struct CUDA_HOG *const, const struct Image3 *);
+# 498 "../src/CUDA_HOG.cu"
+___device__(extern  __no_sc__) void _ZN8CUDA_HOGD1Ev(struct CUDA_HOG *const);
+# 504 "../src/CUDA_HOG.cu"
+___device__(extern  __no_sc__) void _ZN8CUDA_HOGD2Ev(struct CUDA_HOG *const);
+# 96 "../src/CUDA_HOG.cu"
+___device__(extern  __no_sc__) __inline__ void _ZN4CUDA14resetHistogramER13HOGDescriptor(HOGDescriptor *);
+# 138 "../src/CUDA_HOG.cu"
+extern  __shared__ HOGDescriptor s_blockHist[];
+# 139 "../src/CUDA_HOG.cu"
+extern  __device__  __var_used__ const long _ZTVSt9basic_iosIcSt11char_traitsIcEE[4];
+# 140 "../src/CUDA_HOG.cu"
+extern  __device__  __var_used__ const long *const _ZTTSo[];
+# 141 "../src/CUDA_HOG.cu"
+extern  __device__  __var_used__ const long _ZTVSt15basic_streambufIcSt11char_traitsIcEE[16];
+# 142 "../src/CUDA_HOG.cu"
+extern  __device__  __var_used__ const long _ZTVSt13basic_filebufIcSt11char_traitsIcEE[16];
+# 143 "../src/CUDA_HOG.cu"
+extern  __device__  __var_used__ const long *const _ZTTSt14basic_ofstreamIcSt11char_traitsIcEE[];
+# 144 "../src/CUDA_HOG.cu"
+extern  __device__  __var_used__ const long *const _ZTTSi[];
+# 145 "../src/CUDA_HOG.cu"
+extern  __device__  __var_used__ const long *const _ZTTSd[];
+# 146 "../src/CUDA_HOG.cu"
+extern  __device__  __var_used__ const long _ZTVSt15basic_stringbufIcSt11char_traitsIcESaIcEE[16];
+# 147 "../src/CUDA_HOG.cu"
+extern  __device__  __var_used__ const long *const _ZTTSt18basic_stringstreamIcSt11char_traitsIcESaIcEE[];
+#include "common_functions.h"
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+# 164 "/usr/local/cuda-6.5/bin/..//include/vector_functions.h"
+___device__(static  __no_sc__) __inline__ struct uint2 _Z10make_uint2jj(
+# 164 "/usr/local/cuda-6.5/bin/..//include/vector_functions.h"
+unsigned x, 
+# 164 "/usr/local/cuda-6.5/bin/..//include/vector_functions.h"
+unsigned y){
+# 164 "/usr/local/cuda-6.5/bin/..//include/vector_functions.h"
+{
+# 165 "/usr/local/cuda-6.5/bin/..//include/vector_functions.h"
+{
+# 166 "/usr/local/cuda-6.5/bin/..//include/vector_functions.h"
+ struct uint2 __cuda_local_var_2365_9_non_const_t;
+# 166 "/usr/local/cuda-6.5/bin/..//include/vector_functions.h"
+(__cuda_local_var_2365_9_non_const_t.x) = x;
+# 166 "/usr/local/cuda-6.5/bin/..//include/vector_functions.h"
+(__cuda_local_var_2365_9_non_const_t.y) = y;
+# 166 "/usr/local/cuda-6.5/bin/..//include/vector_functions.h"
+return __cuda_local_var_2365_9_non_const_t;
+# 167 "/usr/local/cuda-6.5/bin/..//include/vector_functions.h"
+}
+# 167 "/usr/local/cuda-6.5/bin/..//include/vector_functions.h"
+}}
+# 9025 "/usr/local/cuda-6.5/bin/..//include/math_functions.h"
+___device__(static  __no_sc__) __inline__ float _Z3minff(
+# 9025 "/usr/local/cuda-6.5/bin/..//include/math_functions.h"
+float a, 
+# 9025 "/usr/local/cuda-6.5/bin/..//include/math_functions.h"
+float b){
+# 9025 "/usr/local/cuda-6.5/bin/..//include/math_functions.h"
+{
+# 9026 "/usr/local/cuda-6.5/bin/..//include/math_functions.h"
+{
+# 9027 "/usr/local/cuda-6.5/bin/..//include/math_functions.h"
+return fminf(a, b);
+# 9028 "/usr/local/cuda-6.5/bin/..//include/math_functions.h"
+}
+# 9028 "/usr/local/cuda-6.5/bin/..//include/math_functions.h"
+}}
+# 9080 "/usr/local/cuda-6.5/bin/..//include/math_functions.h"
+___device__(static  __no_sc__) __inline__ float _Z3maxff(
+# 9080 "/usr/local/cuda-6.5/bin/..//include/math_functions.h"
+float a, 
+# 9080 "/usr/local/cuda-6.5/bin/..//include/math_functions.h"
+float b){
+# 9080 "/usr/local/cuda-6.5/bin/..//include/math_functions.h"
+{
+# 9081 "/usr/local/cuda-6.5/bin/..//include/math_functions.h"
+{
+# 9082 "/usr/local/cuda-6.5/bin/..//include/math_functions.h"
+return fmaxf(a, b);
+# 9083 "/usr/local/cuda-6.5/bin/..//include/math_functions.h"
+}
+# 9083 "/usr/local/cuda-6.5/bin/..//include/math_functions.h"
+}}
+# 28 "../src/CUDA_HOG.cu"
+__global__ __var_used__ void _ZN4CUDA15computeGradientEPK6Image3P4Vec2(
+# 28 "../src/CUDA_HOG.cu"
+const struct Image3 *_img, 
+# 28 "../src/CUDA_HOG.cu"
+struct Vec2 *_imgGradient){
+# 28 "../src/CUDA_HOG.cu"
+{
+# 28 "../src/CUDA_HOG.cu"
+{
+# 30 "../src/CUDA_HOG.cu"
+if (((threadIdx.y) < (blockDim.y)) && ((threadIdx.x) < (blockDim.x)))
+# 30 "../src/CUDA_HOG.cu"
+{
+# 32 "../src/CUDA_HOG.cu"
+ struct uint2 __cuda_local_var_103087_9_non_const_blkShr;
+# 35 "../src/CUDA_HOG.cu"
+ struct uint2 __cuda_local_var_103090_9_non_const_tdShr;
+# 38 "../src/CUDA_HOG.cu"
+ struct uint2 __cuda_local_var_103093_9_non_const_idx;
+# 43 "../src/CUDA_HOG.cu"
+ struct float2 *__cuda_local_var_103098_11_non_const_imgGradientPtr;
+# 44 "../src/CUDA_HOG.cu"
+ struct uchar3 *__cuda_local_var_103099_11_non_const_prevImgPtr;
+# 44 "../src/CUDA_HOG.cu"
+ struct uchar3 *__cuda_local_var_103099_54_non_const_imgPtr;
+# 45 "../src/CUDA_HOG.cu"
+ struct uchar3 *__cuda_local_var_103100_39_non_const_nextImgPtr;
+# 46 "../src/CUDA_HOG.cu"
+ float __cuda_local_var_103101_9_non_const_gxR;
+# 46 "../src/CUDA_HOG.cu"
+ float __cuda_local_var_103101_14_non_const_gxG;
+# 46 "../src/CUDA_HOG.cu"
+ float __cuda_local_var_103101_19_non_const_gxB;
+# 46 "../src/CUDA_HOG.cu"
+ float __cuda_local_var_103101_24_non_const_gyR;
+# 46 "../src/CUDA_HOG.cu"
+ float __cuda_local_var_103101_29_non_const_gyG;
+# 46 "../src/CUDA_HOG.cu"
+ float __cuda_local_var_103101_34_non_const_gyB;
+# 46 "../src/CUDA_HOG.cu"
+ float __cuda_local_var_103101_39_non_const_mag;
+# 46 "../src/CUDA_HOG.cu"
+ float __cuda_local_var_103101_44_non_const_mR;
+# 46 "../src/CUDA_HOG.cu"
+ float __cuda_local_var_103101_48_non_const_mG;
+# 46 "../src/CUDA_HOG.cu"
+ float __cuda_local_var_103101_52_non_const_mB;
+# 47 "../src/CUDA_HOG.cu"
+ int __cuda_local_var_103102_7_non_const_x;
+# 47 "../src/CUDA_HOG.cu"
+ int __cuda_local_var_103102_18_non_const_y;
+# 33 "../src/CUDA_HOG.cu"
+(__cuda_local_var_103087_9_non_const_blkShr.x) = (((unsigned)((_ZNK6Image35widthEv(_img)) - 2)) / (gridDim.x));
+# 34 "../src/CUDA_HOG.cu"
+(__cuda_local_var_103087_9_non_const_blkShr.y) = (((unsigned)((_ZNK6Image36heightEv(_img)) - 2)) / (gridDim.y));
+# 36 "../src/CUDA_HOG.cu"
+(__cuda_local_var_103090_9_non_const_tdShr.x) = ((__cuda_local_var_103087_9_non_const_blkShr.x) / (blockDim.x));
+# 37 "../src/CUDA_HOG.cu"
+(__cuda_local_var_103090_9_non_const_tdShr.y) = ((__cuda_local_var_103087_9_non_const_blkShr.y) / (blockDim.y));
+# 39 "../src/CUDA_HOG.cu"
+(__cuda_local_var_103093_9_non_const_idx.x) = (((blockIdx.x) * (__cuda_local_var_103087_9_non_const_blkShr.x)) + ((threadIdx.x) * (__cuda_local_var_103090_9_non_const_tdShr.x)));
+# 40 "../src/CUDA_HOG.cu"
+(__cuda_local_var_103093_9_non_const_idx.y) = (((blockIdx.y) * (__cuda_local_var_103087_9_non_const_blkShr.y)) + ((threadIdx.y) * (__cuda_local_var_103090_9_non_const_tdShr.y)));
+# 44 "../src/CUDA_HOG.cu"
+__cuda_local_var_103099_11_non_const_prevImgPtr = (_ZNK6Image311getConstPtrEjj(_img, 1U, (__cuda_local_var_103093_9_non_const_idx.y)));
+# 44 "../src/CUDA_HOG.cu"
+__cuda_local_var_103099_54_non_const_imgPtr = (_ZNK6Image311getConstPtrEjj(_img, 1U, ((__cuda_local_var_103093_9_non_const_idx.y) + 1U)));
+# 47 "../src/CUDA_HOG.cu"
+__cuda_local_var_103102_7_non_const_x = ((int)(__cuda_local_var_103093_9_non_const_idx.x));
+# 47 "../src/CUDA_HOG.cu"
+__cuda_local_var_103102_18_non_const_y = ((int)(__cuda_local_var_103093_9_non_const_idx.y));
+# 49 "../src/CUDA_HOG.cu"
+for (; (((unsigned)__cuda_local_var_103102_18_non_const_y) < ((__cuda_local_var_103093_9_non_const_idx.y) + (__cuda_local_var_103090_9_non_const_tdShr.y))); __cuda_local_var_103102_18_non_const_y++)
+# 49 "../src/CUDA_HOG.cu"
+{
+# 51 "../src/CUDA_HOG.cu"
+__cuda_local_var_103098_11_non_const_imgGradientPtr = (_ZN4Vec26getPtrEjj(_imgGradient, 0U, ((unsigned)__cuda_local_var_103102_18_non_const_y)));
+# 52 "../src/CUDA_HOG.cu"
+__cuda_local_var_103100_39_non_const_nextImgPtr = (_ZNK6Image311getConstPtrEjj(_img, 1U, ((unsigned)(__cuda_local_var_103102_18_non_const_y + 2))));
+# 53 "../src/CUDA_HOG.cu"
+for (__cuda_local_var_103102_7_non_const_x = ((int)(__cuda_local_var_103093_9_non_const_idx.x)); (((unsigned)__cuda_local_var_103102_7_non_const_x) < ((__cuda_local_var_103093_9_non_const_idx.x) + (__cuda_local_var_103090_9_non_const_tdShr.x))); __cuda_local_var_103102_7_non_const_x++)
+# 53 "../src/CUDA_HOG.cu"
+{
+# 56 "../src/CUDA_HOG.cu"
+__cuda_local_var_103101_9_non_const_gxR = ((sqrtf(((float)((__cuda_local_var_103099_54_non_const_imgPtr[(__cuda_local_var_103102_7_non_const_x + 1)]).x)))) - (sqrtf(((float)((__cuda_local_var_103099_54_non_const_imgPtr[(__cuda_local_var_103102_7_non_const_x - 1)]).x)))));
+# 57 "../src/CUDA_HOG.cu"
+__cuda_local_var_103101_14_non_const_gxG = ((sqrtf(((float)((__cuda_local_var_103099_54_non_const_imgPtr[(__cuda_local_var_103102_7_non_const_x + 1)]).y)))) - (sqrtf(((float)((__cuda_local_var_103099_54_non_const_imgPtr[(__cuda_local_var_103102_7_non_const_x - 1)]).y)))));
+# 58 "../src/CUDA_HOG.cu"
+__cuda_local_var_103101_19_non_const_gxB = ((sqrtf(((float)((__cuda_local_var_103099_54_non_const_imgPtr[(__cuda_local_var_103102_7_non_const_x + 1)]).z)))) - (sqrtf(((float)((__cuda_local_var_103099_54_non_const_imgPtr[(__cuda_local_var_103102_7_non_const_x - 1)]).z)))));
+# 61 "../src/CUDA_HOG.cu"
+__cuda_local_var_103101_24_non_const_gyR = ((sqrtf(((float)((__cuda_local_var_103100_39_non_const_nextImgPtr[__cuda_local_var_103102_7_non_const_x]).x)))) - (sqrtf(((float)((__cuda_local_var_103099_11_non_const_prevImgPtr[__cuda_local_var_103102_7_non_const_x]).x)))));
+# 62 "../src/CUDA_HOG.cu"
+__cuda_local_var_103101_29_non_const_gyG = ((sqrtf(((float)((__cuda_local_var_103100_39_non_const_nextImgPtr[__cuda_local_var_103102_7_non_const_x]).y)))) - (sqrtf(((float)((__cuda_local_var_103099_11_non_const_prevImgPtr[__cuda_local_var_103102_7_non_const_x]).y)))));
+# 63 "../src/CUDA_HOG.cu"
+__cuda_local_var_103101_34_non_const_gyB = ((sqrtf(((float)((__cuda_local_var_103100_39_non_const_nextImgPtr[__cuda_local_var_103102_7_non_const_x]).z)))) - (sqrtf(((float)((__cuda_local_var_103099_11_non_const_prevImgPtr[__cuda_local_var_103102_7_non_const_x]).z)))));
+# 66 "../src/CUDA_HOG.cu"
+__cuda_local_var_103101_44_non_const_mR = (sqrtf(((__cuda_local_var_103101_9_non_const_gxR * __cuda_local_var_103101_9_non_const_gxR) + (__cuda_local_var_103101_24_non_const_gyR * __cuda_local_var_103101_24_non_const_gyR))));
+# 67 "../src/CUDA_HOG.cu"
+__cuda_local_var_103101_48_non_const_mG = (sqrtf(((__cuda_local_var_103101_14_non_const_gxG * __cuda_local_var_103101_14_non_const_gxG) + (__cuda_local_var_103101_29_non_const_gyG * __cuda_local_var_103101_29_non_const_gyG))));
+# 68 "../src/CUDA_HOG.cu"
+__cuda_local_var_103101_52_non_const_mB = (sqrtf(((__cuda_local_var_103101_19_non_const_gxB * __cuda_local_var_103101_19_non_const_gxB) + (__cuda_local_var_103101_34_non_const_gyB * __cuda_local_var_103101_34_non_const_gyB))));
+# 70 "../src/CUDA_HOG.cu"
+__cuda_local_var_103101_39_non_const_mag = (_Z3maxff((_Z3maxff(__cuda_local_var_103101_44_non_const_mR, __cuda_local_var_103101_48_non_const_mG)), __cuda_local_var_103101_52_non_const_mB));
+# 72 "../src/CUDA_HOG.cu"
+if (__cuda_local_var_103101_39_non_const_mag == __cuda_local_var_103101_44_non_const_mR)
+# 72 "../src/CUDA_HOG.cu"
+{
+# 73 "../src/CUDA_HOG.cu"
+((__cuda_local_var_103098_11_non_const_imgGradientPtr[__cuda_local_var_103102_7_non_const_x]).x) = __cuda_local_var_103101_44_non_const_mR;
+# 74 "../src/CUDA_HOG.cu"
+((__cuda_local_var_103098_11_non_const_imgGradientPtr[__cuda_local_var_103102_7_non_const_x]).y) = ((float)(fdivide(((double)((atan2f((fabsf(__cuda_local_var_103101_24_non_const_gyR)), (__cuda_local_var_103101_9_non_const_gxR + (9.999999975e-07F)))) * (180.0F))), (3.141592650000000209))));
+# 76 "../src/CUDA_HOG.cu"
+}
+# 76 "../src/CUDA_HOG.cu"
+else 
+# 76 "../src/CUDA_HOG.cu"
+{
+# 76 "../src/CUDA_HOG.cu"
+if (__cuda_local_var_103101_39_non_const_mag == __cuda_local_var_103101_48_non_const_mG)
+# 76 "../src/CUDA_HOG.cu"
+{
+# 77 "../src/CUDA_HOG.cu"
+((__cuda_local_var_103098_11_non_const_imgGradientPtr[__cuda_local_var_103102_7_non_const_x]).x) = __cuda_local_var_103101_48_non_const_mG;
+# 78 "../src/CUDA_HOG.cu"
+((__cuda_local_var_103098_11_non_const_imgGradientPtr[__cuda_local_var_103102_7_non_const_x]).y) = ((float)(fdivide(((double)((atan2f((fabsf(__cuda_local_var_103101_29_non_const_gyG)), (__cuda_local_var_103101_14_non_const_gxG + (9.999999975e-07F)))) * (180.0F))), (3.141592650000000209))));
+# 80 "../src/CUDA_HOG.cu"
+}
+# 81 "../src/CUDA_HOG.cu"
+else 
+# 81 "../src/CUDA_HOG.cu"
+{
+# 82 "../src/CUDA_HOG.cu"
+((__cuda_local_var_103098_11_non_const_imgGradientPtr[__cuda_local_var_103102_7_non_const_x]).x) = __cuda_local_var_103101_52_non_const_mB;
+# 83 "../src/CUDA_HOG.cu"
+((__cuda_local_var_103098_11_non_const_imgGradientPtr[__cuda_local_var_103102_7_non_const_x]).y) = ((float)(fdivide(((double)((atan2f((fabsf(__cuda_local_var_103101_34_non_const_gyB)), (__cuda_local_var_103101_19_non_const_gxB + (9.999999975e-07F)))) * (180.0F))), (3.141592650000000209))));
+# 85 "../src/CUDA_HOG.cu"
+}
+# 85 "../src/CUDA_HOG.cu"
+}
+# 87 "../src/CUDA_HOG.cu"
+}
+# 88 "../src/CUDA_HOG.cu"
+__cuda_local_var_103099_11_non_const_prevImgPtr = __cuda_local_var_103099_54_non_const_imgPtr;
+# 89 "../src/CUDA_HOG.cu"
+__cuda_local_var_103099_54_non_const_imgPtr = __cuda_local_var_103100_39_non_const_nextImgPtr;
+# 91 "../src/CUDA_HOG.cu"
+}
+# 93 "../src/CUDA_HOG.cu"
+return;
+# 94 "../src/CUDA_HOG.cu"
+}
+# 95 "../src/CUDA_HOG.cu"
+} 
+# 95 "../src/CUDA_HOG.cu"
+}}
+# 135 "../src/CUDA_HOG.cu"
+__global__ __var_used__ void _ZN4CUDA16computeHistogramEPK4Vec2P13HOGDescriptor5uint2(
+# 135 "../src/CUDA_HOG.cu"
+const struct Vec2 *_imgGradient, 
+# 136 "../src/CUDA_HOG.cu"
+HOGDescriptor *g_hogDsc, 
+# 136 "../src/CUDA_HOG.cu"
+const struct uint2 _numWindows){
+# 136 "../src/CUDA_HOG.cu"
+{
+# 136 "../src/CUDA_HOG.cu"
+{
+# 136 "../src/CUDA_HOG.cu"
+ struct uint2 __T24;
+# 139 "../src/CUDA_HOG.cu"
+ unsigned __cuda_local_var_103194_15_non_const_s_idx;
+# 142 "../src/CUDA_HOG.cu"
+ struct uint2 __cuda_local_var_103197_8_non_const_wIdx;
+# 144 "../src/CUDA_HOG.cu"
+ struct uint2 __cuda_local_var_103199_8_non_const_bIdx;
+# 146 "../src/CUDA_HOG.cu"
+ struct uint2 __cuda_local_var_103201_8_non_const_pIdx;
+# 149 "../src/CUDA_HOG.cu"
+ struct uint2 __cuda_local_var_103204_8_non_const_tdShr;
+# 150 "../src/CUDA_HOG.cu"
+ float __cuda_local_var_103205_8_non_const_mag;
+# 150 "../src/CUDA_HOG.cu"
+ float __cuda_local_var_103205_13_non_const_angle;
+# 150 "../src/CUDA_HOG.cu"
+ float __cuda_local_var_103205_20_non_const_a1;
+# 150 "../src/CUDA_HOG.cu"
+ float __cuda_local_var_103205_24_non_const_a2;
+# 150 "../src/CUDA_HOG.cu"
+ float __cuda_local_var_103205_28_non_const_b1;
+# 150 "../src/CUDA_HOG.cu"
+ float __cuda_local_var_103205_32_non_const_b2;
+# 150 "../src/CUDA_HOG.cu"
+ float __cuda_local_var_103205_36_non_const_c1;
+# 150 "../src/CUDA_HOG.cu"
+ float __cuda_local_var_103205_40_non_const_c2;
+# 152 "../src/CUDA_HOG.cu"
+ struct uint2 __cuda_local_var_103207_14_non_const_halfCell;
+# 154 "../src/CUDA_HOG.cu"
+ struct uint2 __cuda_local_var_103209_8_non_const_cellLowCen;
+# 155 "../src/CUDA_HOG.cu"
+ struct uint2 __cuda_local_var_103210_35_non_const_cellHighCen;
+# 158 "../src/CUDA_HOG.cu"
+ int __cuda_local_var_103213_6_non_const_lowBin;
+# 158 "../src/CUDA_HOG.cu"
+ int __cuda_local_var_103213_14_non_const_z1;
+# 158 "../src/CUDA_HOG.cu"
+ int __cuda_local_var_103213_18_non_const_z2;
+# 158 "../src/CUDA_HOG.cu"
+ int __cuda_local_var_103213_22_non_const_xy11;
+# 158 "../src/CUDA_HOG.cu"
+ int __cuda_local_var_103213_28_non_const_xy12;
+# 158 "../src/CUDA_HOG.cu"
+ int __cuda_local_var_103213_34_non_const_xy21;
+# 158 "../src/CUDA_HOG.cu"
+ int __cuda_local_var_103213_40_non_const_xy22;
+# 160 "../src/CUDA_HOG.cu"
+ int __cuda_local_var_103215_6_non_const_bx;
+# 160 "../src/CUDA_HOG.cu"
+ int __cuda_local_var_103215_36_non_const_by;
+# 160 "../src/CUDA_HOG.cu"
+ int __cuda_local_var_103215_66_non_const_bz;
+# 162 "../src/CUDA_HOG.cu"
+ int __cuda_local_var_103217_12_non_const_halfBin;
+# 163 "../src/CUDA_HOG.cu"
+ struct float2 *__cuda_local_var_103218_10_non_const_imgGradientPtr;
+# 165 "../src/CUDA_HOG.cu"
+ unsigned __cuda_local_var_103220_15_non_const_y;
+# 165 "../src/CUDA_HOG.cu"
+ unsigned __cuda_local_var_103220_18_non_const_x;
+# 214 "../src/CUDA_HOG.cu"
+ unsigned __cuda_local_var_103269_21_non_const_thblockSize;
+# 215 "../src/CUDA_HOG.cu"
+ unsigned __cuda_local_var_103270_21_const_HBLOCKSIZE;
+# 216 "../src/CUDA_HOG.cu"
+ unsigned __cuda_local_var_103271_15_non_const_index;
+# 236 "../src/CUDA_HOG.cu"
+ unsigned __cuda_local_var_103291_21_const_NUMBLOCKS;
+# 139 "../src/CUDA_HOG.cu"
+__cuda_local_var_103194_15_non_const_s_idx = (((threadIdx.y) * (blockDim.x)) + (threadIdx.x));
+# 140 "../src/CUDA_HOG.cu"
+_ZN4CUDA14resetHistogramER13HOGDescriptor(((s_blockHist) + __cuda_local_var_103194_15_non_const_s_idx));
+# 142 "../src/CUDA_HOG.cu"
+__cuda_local_var_103197_8_non_const_wIdx = (_Z10make_uint2jj((((blockIdx.z) % (_numWindows.x)) * 32U), (((blockIdx.z) / (_numWindows.x)) * 64U)));
+# 144 "../src/CUDA_HOG.cu"
+__cuda_local_var_103199_8_non_const_bIdx = (_Z10make_uint2jj(((blockIdx.x) * 8U), ((blockIdx.y) * 8U)));
+# 146 "../src/CUDA_HOG.cu"
+__cuda_local_var_103201_8_non_const_pIdx = (_Z10make_uint2jj((((__cuda_local_var_103197_8_non_const_wIdx.x) + (__cuda_local_var_103199_8_non_const_bIdx.x)) + (threadIdx.x)), (((__cuda_local_var_103197_8_non_const_wIdx.y) + (__cuda_local_var_103199_8_non_const_bIdx.y)) + (threadIdx.y))));
+# 149 "../src/CUDA_HOG.cu"
+__cuda_local_var_103204_8_non_const_tdShr = (_Z10make_uint2jj(1U, 1U));
+# 152 "../src/CUDA_HOG.cu"
+__cuda_local_var_103207_14_non_const_halfCell = (*((const struct uint2 *)((__T24 = (_Z10make_uint2jj(4U, 4U))) , (&__T24))));
+# 154 "../src/CUDA_HOG.cu"
+__cuda_local_var_103209_8_non_const_cellLowCen = (_Z10make_uint2jj((((__cuda_local_var_103197_8_non_const_wIdx.x) + (__cuda_local_var_103199_8_non_const_bIdx.x)) + (__cuda_local_var_103207_14_non_const_halfCell.x)), (((__cuda_local_var_103197_8_non_const_wIdx.y) + (__cuda_local_var_103199_8_non_const_bIdx.y)) + (__cuda_local_var_103207_14_non_const_halfCell.y))));
+# 155 "../src/CUDA_HOG.cu"
+__cuda_local_var_103210_35_non_const_cellHighCen = (_Z10make_uint2jj(((((__cuda_local_var_103197_8_non_const_wIdx.x) + (__cuda_local_var_103199_8_non_const_bIdx.x)) + (__cuda_local_var_103207_14_non_const_halfCell.x)) + 8U), ((((__cuda_local_var_103197_8_non_const_wIdx.y) + (__cuda_local_var_103199_8_non_const_bIdx.y)) + (__cuda_local_var_103207_14_non_const_halfCell.y)) + 8U)));
+# 160 "../src/CUDA_HOG.cu"
+__cuda_local_var_103215_6_non_const_bx = 8;
+# 160 "../src/CUDA_HOG.cu"
+__cuda_local_var_103215_36_non_const_by = 8;
+# 160 "../src/CUDA_HOG.cu"
+__cuda_local_var_103215_66_non_const_bz = 20;
+# 162 "../src/CUDA_HOG.cu"
+__cuda_local_var_103217_12_non_const_halfBin = ((int)(__float2int_rz(((double)((float)(fdividef(((double)((float)__cuda_local_var_103215_66_non_const_bz)), (2.0))))))));
+# 166 "../src/CUDA_HOG.cu"
+for (__cuda_local_var_103220_15_non_const_y = 0U; (__cuda_local_var_103220_15_non_const_y < (__cuda_local_var_103204_8_non_const_tdShr.y)); __cuda_local_var_103220_15_non_const_y++)
+# 166 "../src/CUDA_HOG.cu"
+{
+# 167 "../src/CUDA_HOG.cu"
+__cuda_local_var_103218_10_non_const_imgGradientPtr = (_ZNK4Vec211getConstPtrEjj(_imgGradient, (__cuda_local_var_103201_8_non_const_pIdx.x), ((__cuda_local_var_103201_8_non_const_pIdx.y) + __cuda_local_var_103220_15_non_const_y)));
+# 168 "../src/CUDA_HOG.cu"
+for (__cuda_local_var_103220_18_non_const_x = 0U; (__cuda_local_var_103220_18_non_const_x < (__cuda_local_var_103204_8_non_const_tdShr.x)); __cuda_local_var_103220_18_non_const_x++)
+# 168 "../src/CUDA_HOG.cu"
+{
+# 179 "../src/CUDA_HOG.cu"
+ struct uint2 __cuda_local_var_103234_10_non_const_pos;
+# 170 "../src/CUDA_HOG.cu"
+__cuda_local_var_103205_8_non_const_mag = ((__cuda_local_var_103218_10_non_const_imgGradientPtr[__cuda_local_var_103220_18_non_const_x]).x);
+# 171 "../src/CUDA_HOG.cu"
+__cuda_local_var_103205_13_non_const_angle = ((__cuda_local_var_103218_10_non_const_imgGradientPtr[__cuda_local_var_103220_18_non_const_x]).y);
+# 173 "../src/CUDA_HOG.cu"
+__cuda_local_var_103213_14_non_const_z1 = ((int)(__float2int_rz(((double)((float)(fdividef(((double)__cuda_local_var_103205_13_non_const_angle), ((double)(((float)__cuda_local_var_103215_66_non_const_bz) + (9.999999975e-07F))))))))));
+# 174 "../src/CUDA_HOG.cu"
+__cuda_local_var_103213_6_non_const_lowBin = ((__cuda_local_var_103213_14_non_const_z1 * __cuda_local_var_103215_66_non_const_bz) + __cuda_local_var_103217_12_non_const_halfBin);
+# 175 "../src/CUDA_HOG.cu"
+if (((float)__cuda_local_var_103213_6_non_const_lowBin) > __cuda_local_var_103205_13_non_const_angle)
+# 175 "../src/CUDA_HOG.cu"
+{
+# 176 "../src/CUDA_HOG.cu"
+__cuda_local_var_103213_6_non_const_lowBin -= __cuda_local_var_103215_66_non_const_bz;
+# 177 "../src/CUDA_HOG.cu"
+}
+# 179 "../src/CUDA_HOG.cu"
+__cuda_local_var_103234_10_non_const_pos = (_Z10make_uint2jj((__cuda_local_var_103220_18_non_const_x + (__cuda_local_var_103201_8_non_const_pIdx.x)), (__cuda_local_var_103220_15_non_const_y + (__cuda_local_var_103201_8_non_const_pIdx.y))));
+# 180 "../src/CUDA_HOG.cu"
+__cuda_local_var_103205_20_non_const_a1 = (((__cuda_local_var_103234_10_non_const_pos.x) > (__cuda_local_var_103209_8_non_const_cellLowCen.x)) ? ((float)(fdividef(((double)((float)((__cuda_local_var_103234_10_non_const_pos.x) - (__cuda_local_var_103209_8_non_const_cellLowCen.x)))), ((double)((float)__cuda_local_var_103215_6_non_const_bx))))) : (0.0F));
+# 181 "../src/CUDA_HOG.cu"
+__cuda_local_var_103205_28_non_const_b1 = (((__cuda_local_var_103234_10_non_const_pos.y) > (__cuda_local_var_103209_8_non_const_cellLowCen.y)) ? ((float)(fdividef(((double)((float)((__cuda_local_var_103234_10_non_const_pos.y) - (__cuda_local_var_103209_8_non_const_cellLowCen.y)))), ((double)((float)__cuda_local_var_103215_36_non_const_by))))) : (0.0F));
+# 183 "../src/CUDA_HOG.cu"
+__cuda_local_var_103205_36_non_const_c1 = ((float)(fdividef(((double)(__cuda_local_var_103205_13_non_const_angle - ((float)__cuda_local_var_103213_6_non_const_lowBin))), ((double)((float)__cuda_local_var_103215_66_non_const_bz)))));
+# 184 "../src/CUDA_HOG.cu"
+__cuda_local_var_103205_24_non_const_a2 = (((__cuda_local_var_103234_10_non_const_pos.x) < (__cuda_local_var_103210_35_non_const_cellHighCen.x)) ? ((1.0F) - __cuda_local_var_103205_20_non_const_a1) : (0.0F));
+# 185 "../src/CUDA_HOG.cu"
+__cuda_local_var_103205_32_non_const_b2 = (((__cuda_local_var_103234_10_non_const_pos.y) < (__cuda_local_var_103210_35_non_const_cellHighCen.y)) ? ((1.0F) - __cuda_local_var_103205_28_non_const_b1) : (0.0F));
+# 186 "../src/CUDA_HOG.cu"
+__cuda_local_var_103205_40_non_const_c2 = ((1.0F) - __cuda_local_var_103205_36_non_const_c1);
+# 188 "../src/CUDA_HOG.cu"
+__cuda_local_var_103213_22_non_const_xy11 = 0;
+# 189 "../src/CUDA_HOG.cu"
+__cuda_local_var_103213_34_non_const_xy21 = 9;
+# 190 "../src/CUDA_HOG.cu"
+__cuda_local_var_103213_28_non_const_xy12 = 18;
+# 191 "../src/CUDA_HOG.cu"
+__cuda_local_var_103213_40_non_const_xy22 = 27;
+# 193 "../src/CUDA_HOG.cu"
+__cuda_local_var_103213_6_non_const_lowBin = ((int)(((((unsigned)__cuda_local_var_103213_6_non_const_lowBin) % 180U) + 180U) % 180U));
+# 194 "../src/CUDA_HOG.cu"
+__cuda_local_var_103213_14_non_const_z1 = (__cuda_local_var_103213_6_non_const_lowBin / __cuda_local_var_103215_66_non_const_bz);
+# 195 "../src/CUDA_HOG.cu"
+__cuda_local_var_103213_18_non_const_z2 = ((int)(((unsigned)(__cuda_local_var_103213_14_non_const_z1 + 1)) % 9U));
+# 198 "../src/CUDA_HOG.cu"
+(((((s_blockHist)[__cuda_local_var_103194_15_non_const_s_idx]).bin))[(__cuda_local_var_103213_22_non_const_xy11 + __cuda_local_var_103213_14_non_const_z1)]) += (((__cuda_local_var_103205_8_non_const_mag * __cuda_local_var_103205_24_non_const_a2) * __cuda_local_var_103205_32_non_const_b2) * __cuda_local_var_103205_40_non_const_c2);
+# 199 "../src/CUDA_HOG.cu"
+(((((s_blockHist)[__cuda_local_var_103194_15_non_const_s_idx]).bin))[(__cuda_local_var_103213_22_non_const_xy11 + __cuda_local_var_103213_18_non_const_z2)]) += (((__cuda_local_var_103205_8_non_const_mag * __cuda_local_var_103205_24_non_const_a2) * __cuda_local_var_103205_32_non_const_b2) * __cuda_local_var_103205_36_non_const_c1);
+# 200 "../src/CUDA_HOG.cu"
+(((((s_blockHist)[__cuda_local_var_103194_15_non_const_s_idx]).bin))[(__cuda_local_var_103213_28_non_const_xy12 + __cuda_local_var_103213_14_non_const_z1)]) += (((__cuda_local_var_103205_8_non_const_mag * __cuda_local_var_103205_24_non_const_a2) * __cuda_local_var_103205_28_non_const_b1) * __cuda_local_var_103205_40_non_const_c2);
+# 201 "../src/CUDA_HOG.cu"
+(((((s_blockHist)[__cuda_local_var_103194_15_non_const_s_idx]).bin))[(__cuda_local_var_103213_34_non_const_xy21 + __cuda_local_var_103213_14_non_const_z1)]) += (((__cuda_local_var_103205_8_non_const_mag * __cuda_local_var_103205_20_non_const_a1) * __cuda_local_var_103205_32_non_const_b2) * __cuda_local_var_103205_40_non_const_c2);
+# 202 "../src/CUDA_HOG.cu"
+(((((s_blockHist)[__cuda_local_var_103194_15_non_const_s_idx]).bin))[(__cuda_local_var_103213_28_non_const_xy12 + __cuda_local_var_103213_18_non_const_z2)]) += (((__cuda_local_var_103205_8_non_const_mag * __cuda_local_var_103205_24_non_const_a2) * __cuda_local_var_103205_28_non_const_b1) * __cuda_local_var_103205_36_non_const_c1);
+# 203 "../src/CUDA_HOG.cu"
+(((((s_blockHist)[__cuda_local_var_103194_15_non_const_s_idx]).bin))[(__cuda_local_var_103213_34_non_const_xy21 + __cuda_local_var_103213_18_non_const_z2)]) += (((__cuda_local_var_103205_8_non_const_mag * __cuda_local_var_103205_20_non_const_a1) * __cuda_local_var_103205_32_non_const_b2) * __cuda_local_var_103205_36_non_const_c1);
+# 204 "../src/CUDA_HOG.cu"
+(((((s_blockHist)[__cuda_local_var_103194_15_non_const_s_idx]).bin))[(__cuda_local_var_103213_40_non_const_xy22 + __cuda_local_var_103213_14_non_const_z1)]) += (((__cuda_local_var_103205_8_non_const_mag * __cuda_local_var_103205_20_non_const_a1) * __cuda_local_var_103205_28_non_const_b1) * __cuda_local_var_103205_40_non_const_c2);
+# 205 "../src/CUDA_HOG.cu"
+(((((s_blockHist)[__cuda_local_var_103194_15_non_const_s_idx]).bin))[(__cuda_local_var_103213_40_non_const_xy22 + __cuda_local_var_103213_18_non_const_z2)]) += (((__cuda_local_var_103205_8_non_const_mag * __cuda_local_var_103205_20_non_const_a1) * __cuda_local_var_103205_28_non_const_b1) * __cuda_local_var_103205_36_non_const_c1);
+# 207 "../src/CUDA_HOG.cu"
+}
+# 208 "../src/CUDA_HOG.cu"
+}
+# 209 "../src/CUDA_HOG.cu"
+__syncthreads();
+# 214 "../src/CUDA_HOG.cu"
+__cuda_local_var_103269_21_non_const_thblockSize = ((blockDim.x) * (blockDim.y));
+# 215 "../src/CUDA_HOG.cu"
+__cuda_local_var_103270_21_const_HBLOCKSIZE = 36U;
+# 215 "../src/CUDA_HOG.cu"
+{
+# 217 "../src/CUDA_HOG.cu"
+ unsigned s;
+# 217 "../src/CUDA_HOG.cu"
+s = 1U;
+# 217 "../src/CUDA_HOG.cu"
+for (; (s < __cuda_local_var_103269_21_non_const_thblockSize); s *= 2U)
+# 217 "../src/CUDA_HOG.cu"
+{
+# 218 "../src/CUDA_HOG.cu"
+__cuda_local_var_103271_15_non_const_index = ((__cuda_local_var_103194_15_non_const_s_idx * s) * 2U);
+# 219 "../src/CUDA_HOG.cu"
+if (__cuda_local_var_103271_15_non_const_index < __cuda_local_var_103269_21_non_const_thblockSize)
+# 219 "../src/CUDA_HOG.cu"
+{
+# 219 "../src/CUDA_HOG.cu"
+{
+# 221 "../src/CUDA_HOG.cu"
+ unsigned i;
+# 221 "../src/CUDA_HOG.cu"
+i = 0U;
+# 223 "../src/CUDA_HOG.cu"
+
+#pragma unroll 36
+for (; (i < 36U); i++)
+# 223 "../src/CUDA_HOG.cu"
+{
+# 222 "../src/CUDA_HOG.cu"
+(((((s_blockHist)[__cuda_local_var_103271_15_non_const_index]).bin))[i]) += (((((s_blockHist)[(__cuda_local_var_103271_15_non_const_index + s)]).bin))[i]);
+# 222 "../src/CUDA_HOG.cu"
+}
+# 222 "../src/CUDA_HOG.cu"
+}
+# 224 "../src/CUDA_HOG.cu"
+}
+# 225 "../src/CUDA_HOG.cu"
+__syncthreads();
+# 226 "../src/CUDA_HOG.cu"
+}
+# 226 "../src/CUDA_HOG.cu"
+}
+# 232 "../src/CUDA_HOG.cu"
+__cuda_local_var_103197_8_non_const_wIdx = (_Z10make_uint2jj(((__cuda_local_var_103197_8_non_const_wIdx.x) / 32U), ((__cuda_local_var_103197_8_non_const_wIdx.y) / 64U)));
+# 234 "../src/CUDA_HOG.cu"
+__cuda_local_var_103199_8_non_const_bIdx = (_Z10make_uint2jj(((__cuda_local_var_103199_8_non_const_bIdx.x) / 8U), ((__cuda_local_var_103199_8_non_const_bIdx.y) / 8U)));
+# 236 "../src/CUDA_HOG.cu"
+__cuda_local_var_103291_21_const_NUMBLOCKS = 105U;
+# 238 "../src/CUDA_HOG.cu"
+__cuda_local_var_103271_15_non_const_index = (((blockIdx.z) * 105U) + (((blockIdx.y) * (gridDim.x)) + (blockIdx.x)));
+# 239 "../src/CUDA_HOG.cu"
+if (__cuda_local_var_103194_15_non_const_s_idx < 36U)
+# 239 "../src/CUDA_HOG.cu"
+{
+# 240 "../src/CUDA_HOG.cu"
+((((g_hogDsc[__cuda_local_var_103271_15_non_const_index]).bin))[__cuda_local_var_103194_15_non_const_s_idx]) = (((((s_blockHist)[0]).bin))[__cuda_local_var_103194_15_non_const_s_idx]);
+# 242 "../src/CUDA_HOG.cu"
+}
+# 244 "../src/CUDA_HOG.cu"
+return;
+# 245 "../src/CUDA_HOG.cu"
+}
+# 245 "../src/CUDA_HOG.cu"
+}}
+# 246 "../src/CUDA_HOG.cu"
+__global__ __var_used__ void _ZN4CUDA18normalizeHistogramEP13HOGDescriptor(
+# 246 "../src/CUDA_HOG.cu"
+HOGDescriptor *g_hogDsc){
+# 246 "../src/CUDA_HOG.cu"
+{
+# 246 "../src/CUDA_HOG.cu"
+{
+# 252 "../src/CUDA_HOG.cu"
+static  __shared__  __var_used__ HOGDescriptor __nv_cuda_svar_60__ZZN4CUDA18normalizeHistogramEP13HOGDescriptorE11s_blockHist_11_s_blockHist;
+# 253 "../src/CUDA_HOG.cu"
+static  __shared__  __var_used__ HOGDescriptor __nv_cuda_svar_64__ZZN4CUDA18normalizeHistogramEP13HOGDescriptorE15s_tempBlockHist_15_s_tempBlockHist;
+# 254 "../src/CUDA_HOG.cu"
+ unsigned __cuda_local_var_103309_21_const_NUMBLOCKS;
+# 255 "../src/CUDA_HOG.cu"
+ unsigned __cuda_local_var_103310_15_non_const_idx;
+# 261 "../src/CUDA_HOG.cu"
+ unsigned __cuda_local_var_103316_15_non_const_index;
+# 274 "../src/CUDA_HOG.cu"
+ float __cuda_local_var_103329_8_non_const_sumOfSqr;
+# 254 "../src/CUDA_HOG.cu"
+__cuda_local_var_103309_21_const_NUMBLOCKS = 105U;
+# 255 "../src/CUDA_HOG.cu"
+__cuda_local_var_103310_15_non_const_idx = (((blockIdx.z) * 105U) + (((blockIdx.y) * (gridDim.x)) + (blockIdx.x)));
+# 257 "../src/CUDA_HOG.cu"
+(((__nv_cuda_svar_60__ZZN4CUDA18normalizeHistogramEP13HOGDescriptorE11s_blockHist_11_s_blockHist.bin))[(threadIdx.x)]) = ((((g_hogDsc[__cuda_local_var_103310_15_non_const_idx]).bin))[(threadIdx.x)]);
+# 258 "../src/CUDA_HOG.cu"
+(((__nv_cuda_svar_64__ZZN4CUDA18normalizeHistogramEP13HOGDescriptorE15s_tempBlockHist_15_s_tempBlockHist.bin))[(threadIdx.x)]) = ((((__nv_cuda_svar_60__ZZN4CUDA18normalizeHistogramEP13HOGDescriptorE11s_blockHist_11_s_blockHist.bin))[(threadIdx.x)]) * (((__nv_cuda_svar_60__ZZN4CUDA18normalizeHistogramEP13HOGDescriptorE11s_blockHist_11_s_blockHist.bin))[(threadIdx.x)]));
+# 260 "../src/CUDA_HOG.cu"
+__syncthreads();
+# 260 "../src/CUDA_HOG.cu"
+{
+# 264 "../src/CUDA_HOG.cu"
+ unsigned s;
+# 264 "../src/CUDA_HOG.cu"
+s = 1U;
+# 264 "../src/CUDA_HOG.cu"
+for (; (s < (blockDim.x)); s *= 2U)
+# 264 "../src/CUDA_HOG.cu"
+{
+# 265 "../src/CUDA_HOG.cu"
+__cuda_local_var_103316_15_non_const_index = (((threadIdx.x) * s) * 2U);
+# 266 "../src/CUDA_HOG.cu"
+if (__cuda_local_var_103316_15_non_const_index < (blockDim.x))
+# 266 "../src/CUDA_HOG.cu"
+{
+# 267 "../src/CUDA_HOG.cu"
+(((__nv_cuda_svar_64__ZZN4CUDA18normalizeHistogramEP13HOGDescriptorE15s_tempBlockHist_15_s_tempBlockHist.bin))[__cuda_local_var_103316_15_non_const_index]) = ((((__nv_cuda_svar_64__ZZN4CUDA18normalizeHistogramEP13HOGDescriptorE15s_tempBlockHist_15_s_tempBlockHist.bin))[__cuda_local_var_103316_15_non_const_index]) + (((__nv_cuda_svar_64__ZZN4CUDA18normalizeHistogramEP13HOGDescriptorE15s_tempBlockHist_15_s_tempBlockHist.bin))[(__cuda_local_var_103316_15_non_const_index + s)]));
+# 270 "../src/CUDA_HOG.cu"
+}
+# 271 "../src/CUDA_HOG.cu"
+__syncthreads();
+# 272 "../src/CUDA_HOG.cu"
+}
+# 272 "../src/CUDA_HOG.cu"
+}
+# 274 "../src/CUDA_HOG.cu"
+__cuda_local_var_103329_8_non_const_sumOfSqr = (((__nv_cuda_svar_64__ZZN4CUDA18normalizeHistogramEP13HOGDescriptorE15s_tempBlockHist_15_s_tempBlockHist.bin))[0]);
+# 275 "../src/CUDA_HOG.cu"
+__syncthreads();
+# 278 "../src/CUDA_HOG.cu"
+(((__nv_cuda_svar_64__ZZN4CUDA18normalizeHistogramEP13HOGDescriptorE15s_tempBlockHist_15_s_tempBlockHist.bin))[(threadIdx.x)]) = (_Z3minff(((float)(fdividef(((double)(((__nv_cuda_svar_60__ZZN4CUDA18normalizeHistogramEP13HOGDescriptorE11s_blockHist_11_s_blockHist.bin))[(threadIdx.x)])), ((double)(sqrtf((__cuda_local_var_103329_8_non_const_sumOfSqr + (9.99999996e-13F)))))))), (0.200000003F)));
+# 285 "../src/CUDA_HOG.cu"
+(((__nv_cuda_svar_60__ZZN4CUDA18normalizeHistogramEP13HOGDescriptorE11s_blockHist_11_s_blockHist.bin))[(threadIdx.x)]) = (((__nv_cuda_svar_64__ZZN4CUDA18normalizeHistogramEP13HOGDescriptorE15s_tempBlockHist_15_s_tempBlockHist.bin))[(threadIdx.x)]);
+# 287 "../src/CUDA_HOG.cu"
+(((__nv_cuda_svar_64__ZZN4CUDA18normalizeHistogramEP13HOGDescriptorE15s_tempBlockHist_15_s_tempBlockHist.bin))[(threadIdx.x)]) *= (((__nv_cuda_svar_64__ZZN4CUDA18normalizeHistogramEP13HOGDescriptorE15s_tempBlockHist_15_s_tempBlockHist.bin))[(threadIdx.x)]);
+# 288 "../src/CUDA_HOG.cu"
+__syncthreads();
+# 288 "../src/CUDA_HOG.cu"
+{
+# 291 "../src/CUDA_HOG.cu"
+ unsigned s;
+# 291 "../src/CUDA_HOG.cu"
+s = 1U;
+# 291 "../src/CUDA_HOG.cu"
+for (; (s < (blockDim.x)); s *= 2U)
+# 291 "../src/CUDA_HOG.cu"
+{
+# 292 "../src/CUDA_HOG.cu"
+__cuda_local_var_103316_15_non_const_index = (((threadIdx.x) * s) * 2U);
+# 293 "../src/CUDA_HOG.cu"
+if (__cuda_local_var_103316_15_non_const_index < (blockDim.x))
+# 293 "../src/CUDA_HOG.cu"
+{
+# 294 "../src/CUDA_HOG.cu"
+(((__nv_cuda_svar_64__ZZN4CUDA18normalizeHistogramEP13HOGDescriptorE15s_tempBlockHist_15_s_tempBlockHist.bin))[__cuda_local_var_103316_15_non_const_index]) = ((((__nv_cuda_svar_64__ZZN4CUDA18normalizeHistogramEP13HOGDescriptorE15s_tempBlockHist_15_s_tempBlockHist.bin))[__cuda_local_var_103316_15_non_const_index]) + (((__nv_cuda_svar_64__ZZN4CUDA18normalizeHistogramEP13HOGDescriptorE15s_tempBlockHist_15_s_tempBlockHist.bin))[(__cuda_local_var_103316_15_non_const_index + s)]));
+# 297 "../src/CUDA_HOG.cu"
+}
+# 298 "../src/CUDA_HOG.cu"
+__syncthreads();
+# 299 "../src/CUDA_HOG.cu"
+}
+# 299 "../src/CUDA_HOG.cu"
+}
+# 301 "../src/CUDA_HOG.cu"
+__cuda_local_var_103329_8_non_const_sumOfSqr = (((__nv_cuda_svar_64__ZZN4CUDA18normalizeHistogramEP13HOGDescriptorE15s_tempBlockHist_15_s_tempBlockHist.bin))[0]);
+# 302 "../src/CUDA_HOG.cu"
+__syncthreads();
+# 304 "../src/CUDA_HOG.cu"
+(((__nv_cuda_svar_60__ZZN4CUDA18normalizeHistogramEP13HOGDescriptorE11s_blockHist_11_s_blockHist.bin))[(threadIdx.x)]) = ((float)(fdividef(((double)(((__nv_cuda_svar_60__ZZN4CUDA18normalizeHistogramEP13HOGDescriptorE11s_blockHist_11_s_blockHist.bin))[(threadIdx.x)])), ((double)(sqrtf((__cuda_local_var_103329_8_non_const_sumOfSqr + (9.99999996e-13F))))))));
+# 308 "../src/CUDA_HOG.cu"
+((((g_hogDsc[__cuda_local_var_103310_15_non_const_idx]).bin))[(threadIdx.x)]) = (((__nv_cuda_svar_60__ZZN4CUDA18normalizeHistogramEP13HOGDescriptorE11s_blockHist_11_s_blockHist.bin))[(threadIdx.x)]);
+# 310 "../src/CUDA_HOG.cu"
+} 
+# 310 "../src/CUDA_HOG.cu"
+}}
+# 419 "/usr/local/cuda-6.5/bin/..//include/vector_types.h"
+ __attribute__((nv_linkonce_odr)) ___device__( __no_sc__) __inline__ void _ZN4dim3C1Ejjj(
+# 419 "/usr/local/cuda-6.5/bin/..//include/vector_types.h"
+struct dim3 *const this, 
+# 419 "/usr/local/cuda-6.5/bin/..//include/vector_types.h"
+unsigned vx, 
+# 419 "/usr/local/cuda-6.5/bin/..//include/vector_types.h"
+unsigned vy, 
+# 419 "/usr/local/cuda-6.5/bin/..//include/vector_types.h"
+unsigned vz){
+# 419 "/usr/local/cuda-6.5/bin/..//include/vector_types.h"
+{
+# 419 "/usr/local/cuda-6.5/bin/..//include/vector_types.h"
+{
+# 419 "/usr/local/cuda-6.5/bin/..//include/vector_types.h"
+(this->x) = vx;
+# 419 "/usr/local/cuda-6.5/bin/..//include/vector_types.h"
+(this->y) = vy;
+# 419 "/usr/local/cuda-6.5/bin/..//include/vector_types.h"
+(this->z) = vz;
+# 419 "/usr/local/cuda-6.5/bin/..//include/vector_types.h"
+} 
+# 419 "/usr/local/cuda-6.5/bin/..//include/vector_types.h"
+}}
+# 421 "/usr/local/cuda-6.5/bin/..//include/vector_types.h"
+ __attribute__((nv_linkonce_odr)) ___device__( __no_sc__) __inline__ void _ZN4dim3C2Ejjj(
+# 421 "/usr/local/cuda-6.5/bin/..//include/vector_types.h"
+struct dim3 *const this, 
+# 421 "/usr/local/cuda-6.5/bin/..//include/vector_types.h"
+unsigned __T25, 
+# 421 "/usr/local/cuda-6.5/bin/..//include/vector_types.h"
+unsigned __T26, 
+# 421 "/usr/local/cuda-6.5/bin/..//include/vector_types.h"
+unsigned __T27){
+# 421 "/usr/local/cuda-6.5/bin/..//include/vector_types.h"
+{
+# 421 "/usr/local/cuda-6.5/bin/..//include/vector_types.h"
+{
+# 421 "/usr/local/cuda-6.5/bin/..//include/vector_types.h"
+_ZN4dim3C1Ejjj(this, __T25, __T26, __T27);
+# 421 "/usr/local/cuda-6.5/bin/..//include/vector_types.h"
+} 
+# 421 "/usr/local/cuda-6.5/bin/..//include/vector_types.h"
+}}
+# 82 "../src/Image3.hpp"
+ __attribute__((nv_linkonce_odr)) ___device__( __no_sc__) __inline__ int _ZNK6Image35widthEv(
+# 82 "../src/Image3.hpp"
+const struct Image3 *const this){
+# 82 "../src/Image3.hpp"
+{
+# 82 "../src/Image3.hpp"
+{
+# 82 "../src/Image3.hpp"
+ int __T28;
+# 82 "../src/Image3.hpp"
+{
+# 83 "../src/Image3.hpp"
+if (!(this))
+# 83 "../src/Image3.hpp"
+{
+# 83 "../src/Image3.hpp"
+__T28 = 0;
+# 83 "../src/Image3.hpp"
+}
+# 83 "../src/Image3.hpp"
+return this->imWidth;
+# 83 "../src/Image3.hpp"
+}
+# 84 "../src/Image3.hpp"
+}
+# 84 "../src/Image3.hpp"
+}}
+# 85 "../src/Image3.hpp"
+ __attribute__((nv_linkonce_odr)) ___device__( __no_sc__) __inline__ int _ZNK6Image36heightEv(
+# 85 "../src/Image3.hpp"
+const struct Image3 *const this){
+# 85 "../src/Image3.hpp"
+{
+# 85 "../src/Image3.hpp"
+{
+# 85 "../src/Image3.hpp"
+ int __T29;
+# 85 "../src/Image3.hpp"
+{
+# 86 "../src/Image3.hpp"
+if (!(this))
+# 86 "../src/Image3.hpp"
+{
+# 86 "../src/Image3.hpp"
+__T29 = 0;
+# 86 "../src/Image3.hpp"
+}
+# 86 "../src/Image3.hpp"
+return this->imHeight;
+# 86 "../src/Image3.hpp"
+}
+# 87 "../src/Image3.hpp"
+}
+# 87 "../src/Image3.hpp"
+}}
+# 88 "../src/Image3.hpp"
+ __attribute__((nv_linkonce_odr)) ___device__( __no_sc__) __inline__ size_t _ZNK6Image34sizeEv(
+# 88 "../src/Image3.hpp"
+const struct Image3 *const this){
+# 88 "../src/Image3.hpp"
+{
+# 88 "../src/Image3.hpp"
+{
+# 88 "../src/Image3.hpp"
+ int __T210;
+# 88 "../src/Image3.hpp"
+{
+# 89 "../src/Image3.hpp"
+if (!(this))
+# 89 "../src/Image3.hpp"
+{
+# 89 "../src/Image3.hpp"
+__T210 = 0;
+# 89 "../src/Image3.hpp"
+}
+# 89 "../src/Image3.hpp"
+return this->imSize;
+# 89 "../src/Image3.hpp"
+}
+# 90 "../src/Image3.hpp"
+}
+# 90 "../src/Image3.hpp"
+}}
+# 92 "../src/Image3.hpp"
+ __attribute__((nv_linkonce_odr)) ___device__( __no_sc__) __inline__ struct uchar3 *_ZNK6Image311getConstPtrEv(
+# 92 "../src/Image3.hpp"
+const struct Image3 *const this){
+# 92 "../src/Image3.hpp"
+{
+# 92 "../src/Image3.hpp"
+{
+# 92 "../src/Image3.hpp"
+ int __T211;
+# 92 "../src/Image3.hpp"
+{
+# 93 "../src/Image3.hpp"
+if (!(this))
+# 93 "../src/Image3.hpp"
+{
+# 93 "../src/Image3.hpp"
+__T211 = 0;
+# 93 "../src/Image3.hpp"
+}
+# 93 "../src/Image3.hpp"
+return this->data;
+# 93 "../src/Image3.hpp"
+}
+# 94 "../src/Image3.hpp"
+}
+# 94 "../src/Image3.hpp"
+}}
+# 103 "../src/Image3.hpp"
+ __attribute__((nv_linkonce_odr)) ___device__( __no_sc__) __inline__ struct uchar3 *_ZNK6Image311getConstPtrEjj(
+# 103 "../src/Image3.hpp"
+const struct Image3 *const this, 
+# 103 "../src/Image3.hpp"
+unsigned x, 
+# 103 "../src/Image3.hpp"
+unsigned y){
+# 103 "../src/Image3.hpp"
+{
+# 103 "../src/Image3.hpp"
+{
+# 103 "../src/Image3.hpp"
+ int __T212;
+# 103 "../src/Image3.hpp"
+{
+# 104 "../src/Image3.hpp"
+if (!(this))
+# 104 "../src/Image3.hpp"
+{
+# 104 "../src/Image3.hpp"
+__T212 = 0;
+# 104 "../src/Image3.hpp"
+}
+# 104 "../src/Image3.hpp"
+return (this->data) + ((y * ((unsigned)(this->imWidth))) + x);
+# 104 "../src/Image3.hpp"
+}
+# 105 "../src/Image3.hpp"
+}
+# 105 "../src/Image3.hpp"
+}}
+# 60 "../src/Vec2.hpp"
+ __attribute__((nv_linkonce_odr)) ___device__( __no_sc__) __inline__ int _ZNK4Vec25widthEv(
+# 60 "../src/Vec2.hpp"
+const struct Vec2 *const this){
+# 60 "../src/Vec2.hpp"
+{
+# 60 "../src/Vec2.hpp"
+{
+# 60 "../src/Vec2.hpp"
+ int __T213;
+# 60 "../src/Vec2.hpp"
+{
+# 61 "../src/Vec2.hpp"
+if (!(this))
+# 61 "../src/Vec2.hpp"
+{
+# 61 "../src/Vec2.hpp"
+__T213 = 0;
+# 61 "../src/Vec2.hpp"
+}
+# 61 "../src/Vec2.hpp"
+return this->imWidth;
+# 61 "../src/Vec2.hpp"
+}
+# 62 "../src/Vec2.hpp"
+}
+# 62 "../src/Vec2.hpp"
+}}
+# 63 "../src/Vec2.hpp"
+ __attribute__((nv_linkonce_odr)) ___device__( __no_sc__) __inline__ int _ZNK4Vec26heightEv(
+# 63 "../src/Vec2.hpp"
+const struct Vec2 *const this){
+# 63 "../src/Vec2.hpp"
+{
+# 63 "../src/Vec2.hpp"
+{
+# 63 "../src/Vec2.hpp"
+ int __T214;
+# 63 "../src/Vec2.hpp"
+{
+# 64 "../src/Vec2.hpp"
+if (!(this))
+# 64 "../src/Vec2.hpp"
+{
+# 64 "../src/Vec2.hpp"
+__T214 = 0;
+# 64 "../src/Vec2.hpp"
+}
+# 64 "../src/Vec2.hpp"
+return this->imHeight;
+# 64 "../src/Vec2.hpp"
+}
+# 65 "../src/Vec2.hpp"
+}
+# 65 "../src/Vec2.hpp"
+}}
+# 66 "../src/Vec2.hpp"
+ __attribute__((nv_linkonce_odr)) ___device__( __no_sc__) __inline__ size_t _ZNK4Vec24sizeEv(
+# 66 "../src/Vec2.hpp"
+const struct Vec2 *const this){
+# 66 "../src/Vec2.hpp"
+{
+# 66 "../src/Vec2.hpp"
+{
+# 66 "../src/Vec2.hpp"
+ int __T215;
+# 66 "../src/Vec2.hpp"
+{
+# 67 "../src/Vec2.hpp"
+if (!(this))
+# 67 "../src/Vec2.hpp"
+{
+# 67 "../src/Vec2.hpp"
+__T215 = 0;
+# 67 "../src/Vec2.hpp"
+}
+# 67 "../src/Vec2.hpp"
+return this->imSize;
+# 67 "../src/Vec2.hpp"
+}
+# 68 "../src/Vec2.hpp"
+}
+# 68 "../src/Vec2.hpp"
+}}
+# 78 "../src/Vec2.hpp"
+ __attribute__((nv_linkonce_odr)) ___device__( __no_sc__) __inline__ struct float2 *_ZN4Vec26getPtrEjj(
+# 78 "../src/Vec2.hpp"
+struct Vec2 *const this, 
+# 78 "../src/Vec2.hpp"
+unsigned x, 
+# 78 "../src/Vec2.hpp"
+unsigned y){
+# 78 "../src/Vec2.hpp"
+{
+# 78 "../src/Vec2.hpp"
+{
+# 78 "../src/Vec2.hpp"
+ int __T216;
+# 78 "../src/Vec2.hpp"
+{
+# 79 "../src/Vec2.hpp"
+if (!(this))
+# 79 "../src/Vec2.hpp"
+{
+# 79 "../src/Vec2.hpp"
+__T216 = 0;
+# 79 "../src/Vec2.hpp"
+}
+# 79 "../src/Vec2.hpp"
+return (this->data) + ((y * ((unsigned)(this->imWidth))) + x);
+# 79 "../src/Vec2.hpp"
+}
+# 80 "../src/Vec2.hpp"
+}
+# 80 "../src/Vec2.hpp"
+}}
+# 81 "../src/Vec2.hpp"
+ __attribute__((nv_linkonce_odr)) ___device__( __no_sc__) __inline__ struct float2 *_ZNK4Vec211getConstPtrEjj(
+# 81 "../src/Vec2.hpp"
+const struct Vec2 *const this, 
+# 81 "../src/Vec2.hpp"
+unsigned x, 
+# 81 "../src/Vec2.hpp"
+unsigned y){
+# 81 "../src/Vec2.hpp"
+{
+# 81 "../src/Vec2.hpp"
+{
+# 81 "../src/Vec2.hpp"
+ int __T217;
+# 81 "../src/Vec2.hpp"
+{
+# 82 "../src/Vec2.hpp"
+if (!(this))
+# 82 "../src/Vec2.hpp"
+{
+# 82 "../src/Vec2.hpp"
+__T217 = 0;
+# 82 "../src/Vec2.hpp"
+}
+# 82 "../src/Vec2.hpp"
+return (this->data) + ((y * ((unsigned)(this->imWidth))) + x);
+# 82 "../src/Vec2.hpp"
+}
+# 83 "../src/Vec2.hpp"
+}
+# 83 "../src/Vec2.hpp"
+}}
+# 312 "../src/CUDA_HOG.cu"
+___device__( __no_sc__) void _ZN8CUDA_HOGC1ERK6Image3(
+# 312 "../src/CUDA_HOG.cu"
+struct CUDA_HOG *const this, 
+# 312 "../src/CUDA_HOG.cu"
+const struct Image3 *_img){
+# 312 "../src/CUDA_HOG.cu"
+{
+# 316 "../src/CUDA_HOG.cu"
+{
+# 316 "../src/CUDA_HOG.cu"
+_ZN6Image3C1ERKS_((&(this->img)), _img);
+# 316 "../src/CUDA_HOG.cu"
+_ZN4Vec2C1Eii((&(this->imgGradient)), ((_ZNK6Image35widthEv(((const struct Image3 *)(&(this->img))))) - 2), ((_ZNK6Image36heightEv(((const struct Image3 *)(&(this->img))))) - 2));
+# 316 "../src/CUDA_HOG.cu"
+(this->ftrSize) = 3780U;
+# 318 "../src/CUDA_HOG.cu"
+(this->numWindowsX) = ((((unsigned)(_ZNK4Vec25widthEv(((const struct Vec2 *)(&(this->imgGradient)))))) / 32U) - 1U);
+# 319 "../src/CUDA_HOG.cu"
+(this->numWindowsY) = ((((unsigned)(_ZNK4Vec26heightEv(((const struct Vec2 *)(&(this->imgGradient)))))) / 64U) - 1U);
+# 320 "../src/CUDA_HOG.cu"
+(this->hogDsc) = ((HOGDescriptor *)(malloc((((unsigned long)((((this->numWindowsX) * (this->numWindowsY)) * 7U) * 15U)) * 144UL))));
+# 323 "../src/CUDA_HOG.cu"
+} 
+# 323 "../src/CUDA_HOG.cu"
+}}
+# 325 "../src/CUDA_HOG.cu"
+___device__( __no_sc__) void _ZN8CUDA_HOGC2ERK6Image3(
+# 325 "../src/CUDA_HOG.cu"
+struct CUDA_HOG *const this, 
+# 325 "../src/CUDA_HOG.cu"
+const struct Image3 *__T218){
+# 325 "../src/CUDA_HOG.cu"
+{
+# 325 "../src/CUDA_HOG.cu"
+{
+# 325 "../src/CUDA_HOG.cu"
+_ZN8CUDA_HOGC1ERK6Image3(this, __T218);
+# 325 "../src/CUDA_HOG.cu"
+} 
+# 325 "../src/CUDA_HOG.cu"
+}}
+# 498 "../src/CUDA_HOG.cu"
+___device__( __no_sc__) void _ZN8CUDA_HOGD1Ev(
+# 498 "../src/CUDA_HOG.cu"
+struct CUDA_HOG *const this){
+# 498 "../src/CUDA_HOG.cu"
+{
+# 498 "../src/CUDA_HOG.cu"
+{
+# 500 "../src/CUDA_HOG.cu"
+free(((void *)(this->hogDsc)));
+# 501 "../src/CUDA_HOG.cu"
+(this->hogDsc) = ((HOGDescriptor *)0LL);
+# 501 "../src/CUDA_HOG.cu"
+{
+# 502 "../src/CUDA_HOG.cu"
+_ZN4Vec2D1Ev((&(this->imgGradient)));
+# 502 "../src/CUDA_HOG.cu"
+_ZN6Image3D1Ev((&(this->img)));
+# 502 "../src/CUDA_HOG.cu"
+}
+# 502 "../src/CUDA_HOG.cu"
+} 
+# 502 "../src/CUDA_HOG.cu"
+}}
+# 504 "../src/CUDA_HOG.cu"
+___device__( __no_sc__) void _ZN8CUDA_HOGD2Ev(
+# 504 "../src/CUDA_HOG.cu"
+struct CUDA_HOG *const this){
+# 504 "../src/CUDA_HOG.cu"
+{
+# 504 "../src/CUDA_HOG.cu"
+{
+# 504 "../src/CUDA_HOG.cu"
+_ZN8CUDA_HOGD1Ev(this);
+# 504 "../src/CUDA_HOG.cu"
+} 
+# 504 "../src/CUDA_HOG.cu"
+}}
+# 96 "../src/CUDA_HOG.cu"
+ __attribute__((nv_linkonce_odr)) ___device__( __no_sc__) __inline__ void _ZN4CUDA14resetHistogramER13HOGDescriptor(
+# 96 "../src/CUDA_HOG.cu"
+HOGDescriptor *blockHist){
+# 96 "../src/CUDA_HOG.cu"
+{
+# 96 "../src/CUDA_HOG.cu"
+{
+# 97 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[0]) = (0.0F);
+# 98 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[1]) = (0.0F);
+# 99 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[2]) = (0.0F);
+# 100 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[3]) = (0.0F);
+# 101 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[4]) = (0.0F);
+# 102 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[5]) = (0.0F);
+# 103 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[6]) = (0.0F);
+# 104 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[7]) = (0.0F);
+# 105 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[8]) = (0.0F);
+# 106 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[9]) = (0.0F);
+# 107 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[10]) = (0.0F);
+# 108 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[11]) = (0.0F);
+# 109 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[12]) = (0.0F);
+# 110 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[13]) = (0.0F);
+# 111 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[14]) = (0.0F);
+# 112 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[15]) = (0.0F);
+# 113 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[16]) = (0.0F);
+# 114 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[17]) = (0.0F);
+# 115 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[18]) = (0.0F);
+# 116 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[19]) = (0.0F);
+# 117 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[20]) = (0.0F);
+# 118 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[21]) = (0.0F);
+# 119 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[22]) = (0.0F);
+# 120 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[23]) = (0.0F);
+# 121 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[24]) = (0.0F);
+# 122 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[25]) = (0.0F);
+# 123 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[26]) = (0.0F);
+# 124 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[27]) = (0.0F);
+# 125 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[28]) = (0.0F);
+# 126 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[29]) = (0.0F);
+# 127 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[30]) = (0.0F);
+# 128 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[31]) = (0.0F);
+# 129 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[32]) = (0.0F);
+# 130 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[33]) = (0.0F);
+# 131 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[34]) = (0.0F);
+# 132 "../src/CUDA_HOG.cu"
+(((blockHist->bin))[35]) = (0.0F);
+# 134 "../src/CUDA_HOG.cu"
+} 
+# 134 "../src/CUDA_HOG.cu"
+}}

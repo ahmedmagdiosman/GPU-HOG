@@ -1,0 +1,36 @@
+# 212 "/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h" 3
+typedef unsigned long size_t;
+#include "crt/device_runtime.h"
+# 444 "/usr/include/c++/4.8/cmath" 3
+___device__(extern  __no_sc__) __inline__ __attribute__((visibility("default"))) float _ZSt3sinf(float);
+# 445 "/usr/include/c++/4.8/cmath" 3
+extern  __device__  __var_used__ const long _ZTVN10__cxxabiv117__class_type_infoE[];
+# 446 "/usr/include/c++/4.8/cmath" 3
+extern  __device__  __var_used__ const long _ZTVN10__cxxabiv120__si_class_type_infoE[];
+#include "common_functions.h"
+# 448 "/usr/include/c++/4.8/cmath" 3
+ __attribute__((nv_weak_odr))  __device__  __var_used__ const long _ZTVSt9exception[5] = {0L,0L,0L,0L,0L};
+# 449 "/usr/include/c++/4.8/cmath" 3
+ __attribute__((nv_weak_odr))  __device__  __var_used__ const long _ZTVN12cimg_library13CImgExceptionE[5] = {0L,0L,0L,0L,0L};
+# 450 "/usr/include/c++/4.8/cmath" 3
+ __attribute__((nv_weak_odr))  __device__  __var_used__ const long _ZTVN12cimg_library21CImgInstanceExceptionE[5] = {0L,0L,0L,0L,0L};
+# 451 "/usr/include/c++/4.8/cmath" 3
+ __attribute__((nv_weak_odr))  __device__  __var_used__ const long _ZTVN12cimg_library21CImgArgumentExceptionE[5] = {0L,0L,0L,0L,0L};
+# 452 "/usr/include/c++/4.8/cmath" 3
+ __attribute__((nv_weak_odr))  __device__  __var_used__ const long _ZTVN12cimg_library15CImgIOExceptionE[5] = {0L,0L,0L,0L,0L};
+# 453 "/usr/include/c++/4.8/cmath" 3
+ __attribute__((nv_weak_odr))  __device__  __var_used__ const long _ZTVN12cimg_library20CImgDisplayExceptionE[5] = {0L,0L,0L,0L,0L};
+# 444 "/usr/include/c++/4.8/cmath" 3
+ __attribute__((nv_linkonce_odr)) ___device__( __no_sc__) __inline__ __attribute__((visibility("default"))) float _ZSt3sinf(
+# 444 "/usr/include/c++/4.8/cmath" 3
+float __x){
+# 444 "/usr/include/c++/4.8/cmath" 3
+{
+# 445 "/usr/include/c++/4.8/cmath" 3
+{
+# 445 "/usr/include/c++/4.8/cmath" 3
+return (float)(sinf(((double)__x)));
+# 445 "/usr/include/c++/4.8/cmath" 3
+}
+# 445 "/usr/include/c++/4.8/cmath" 3
+}}

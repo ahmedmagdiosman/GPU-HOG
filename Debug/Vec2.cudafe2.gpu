@@ -1,0 +1,288 @@
+# 27 "../src/Vec2.hpp"
+struct Vec2;
+# 212 "/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h" 3
+typedef unsigned long size_t;
+#include "crt/device_runtime.h"
+# 27 "../src/Vec2.hpp"
+struct Vec2 {
+# 46 "../src/Vec2.hpp"
+struct float2 *data;
+# 47 "../src/Vec2.hpp"
+int imWidth;
+# 48 "../src/Vec2.hpp"
+int imHeight;
+# 49 "../src/Vec2.hpp"
+size_t imSize;};
+# 180 "/usr/local/cuda-6.5/bin/..//include/crt/device_runtime.h" 3
+___device__(extern  __no_sc__) __attribute__((__externally_visible__)) __attribute__((visibility("default"))) void *malloc(size_t);
+# 181 "/usr/local/cuda-6.5/bin/..//include/crt/device_runtime.h" 3
+___device__(extern  __no_sc__) __attribute__((__externally_visible__)) __attribute__((__nothrow__)) __attribute__((visibility("default"))) void free(void *);
+# 60 "../src/Vec2.hpp"
+___device__(extern  __no_sc__) __inline__ int _ZNK4Vec25widthEv(const struct Vec2 *const);
+# 63 "../src/Vec2.hpp"
+___device__(extern  __no_sc__) __inline__ int _ZNK4Vec26heightEv(const struct Vec2 *const);
+# 70 "../src/Vec2.hpp"
+___device__(extern  __no_sc__) __inline__ struct float2 *_ZNK4Vec211getConstPtrEv(const struct Vec2 *const);
+# 31 "../src/Vec2.cu"
+___device__(extern  __no_sc__) void _ZN4Vec2C1ERKS_(struct Vec2 *const, const struct Vec2 *);
+# 50 "../src/Vec2.cu"
+___device__(extern  __no_sc__) void _ZN4Vec2C2ERKS_(struct Vec2 *const, const struct Vec2 *);
+# 16 "../src/Vec2.cu"
+___device__(extern  __no_sc__) void _ZN4Vec2C1Eii(struct Vec2 *const, int, int);
+# 23 "../src/Vec2.cu"
+___device__(extern  __no_sc__) void _ZN4Vec2C2Eii(struct Vec2 *const, int, int);
+# 23 "../src/Vec2.cu"
+___device__(extern  __no_sc__) void _ZN4Vec2C1Ev(struct Vec2 *const);
+# 31 "../src/Vec2.cu"
+___device__(extern  __no_sc__) void _ZN4Vec2C2Ev(struct Vec2 *const);
+# 50 "../src/Vec2.cu"
+___device__(extern  __no_sc__) void _ZN4Vec2D1Ev(struct Vec2 *const);
+# 55 "../src/Vec2.cu"
+___device__(extern  __no_sc__) void _ZN4Vec2D2Ev(struct Vec2 *const);
+#include "common_functions.h"
+# 60 "../src/Vec2.hpp"
+ __attribute__((nv_linkonce_odr)) ___device__( __no_sc__) __inline__ int _ZNK4Vec25widthEv(
+# 60 "../src/Vec2.hpp"
+const struct Vec2 *const this){
+# 60 "../src/Vec2.hpp"
+{
+# 60 "../src/Vec2.hpp"
+{
+# 60 "../src/Vec2.hpp"
+ int __T24;
+# 60 "../src/Vec2.hpp"
+{
+# 61 "../src/Vec2.hpp"
+if (!(this))
+# 61 "../src/Vec2.hpp"
+{
+# 61 "../src/Vec2.hpp"
+__T24 = 0;
+# 61 "../src/Vec2.hpp"
+}
+# 61 "../src/Vec2.hpp"
+return this->imWidth;
+# 61 "../src/Vec2.hpp"
+}
+# 62 "../src/Vec2.hpp"
+}
+# 62 "../src/Vec2.hpp"
+}}
+# 63 "../src/Vec2.hpp"
+ __attribute__((nv_linkonce_odr)) ___device__( __no_sc__) __inline__ int _ZNK4Vec26heightEv(
+# 63 "../src/Vec2.hpp"
+const struct Vec2 *const this){
+# 63 "../src/Vec2.hpp"
+{
+# 63 "../src/Vec2.hpp"
+{
+# 63 "../src/Vec2.hpp"
+ int __T25;
+# 63 "../src/Vec2.hpp"
+{
+# 64 "../src/Vec2.hpp"
+if (!(this))
+# 64 "../src/Vec2.hpp"
+{
+# 64 "../src/Vec2.hpp"
+__T25 = 0;
+# 64 "../src/Vec2.hpp"
+}
+# 64 "../src/Vec2.hpp"
+return this->imHeight;
+# 64 "../src/Vec2.hpp"
+}
+# 65 "../src/Vec2.hpp"
+}
+# 65 "../src/Vec2.hpp"
+}}
+# 70 "../src/Vec2.hpp"
+ __attribute__((nv_linkonce_odr)) ___device__( __no_sc__) __inline__ struct float2 *_ZNK4Vec211getConstPtrEv(
+# 70 "../src/Vec2.hpp"
+const struct Vec2 *const this){
+# 70 "../src/Vec2.hpp"
+{
+# 70 "../src/Vec2.hpp"
+{
+# 70 "../src/Vec2.hpp"
+ int __T26;
+# 70 "../src/Vec2.hpp"
+{
+# 71 "../src/Vec2.hpp"
+if (!(this))
+# 71 "../src/Vec2.hpp"
+{
+# 71 "../src/Vec2.hpp"
+__T26 = 0;
+# 71 "../src/Vec2.hpp"
+}
+# 71 "../src/Vec2.hpp"
+return this->data;
+# 71 "../src/Vec2.hpp"
+}
+# 72 "../src/Vec2.hpp"
+}
+# 72 "../src/Vec2.hpp"
+}}
+# 31 "../src/Vec2.cu"
+___device__( __no_sc__) void _ZN4Vec2C1ERKS_(
+# 31 "../src/Vec2.cu"
+struct Vec2 *const this, 
+# 31 "../src/Vec2.cu"
+const struct Vec2 *_vec){
+# 31 "../src/Vec2.cu"
+{
+# 33 "../src/Vec2.cu"
+{
+# 41 "../src/Vec2.cu"
+ const struct float2 *__cuda_local_var_79794_16_non_const__vecPtr;
+# 42 "../src/Vec2.cu"
+ unsigned __cuda_local_var_79795_15_non_const_i;
+# 35 "../src/Vec2.cu"
+(this->imWidth) = (_ZNK4Vec25widthEv(_vec));
+# 36 "../src/Vec2.cu"
+(this->imHeight) = (_ZNK4Vec26heightEv(_vec));
+# 37 "../src/Vec2.cu"
+(this->imSize) = ((size_t)((this->imWidth) * (this->imHeight)));
+# 38 "../src/Vec2.cu"
+(this->data) = ((struct float2 *)(malloc(((this->imSize) * 8UL))));
+# 41 "../src/Vec2.cu"
+__cuda_local_var_79794_16_non_const__vecPtr = ((const struct float2 *)(_ZNK4Vec211getConstPtrEv(_vec)));
+# 42 "../src/Vec2.cu"
+__cuda_local_var_79795_15_non_const_i = 0U;
+# 43 "../src/Vec2.cu"
+for (__cuda_local_var_79795_15_non_const_i = 0U; (((unsigned long)__cuda_local_var_79795_15_non_const_i) < (this->imSize)); __cuda_local_var_79795_15_non_const_i++)
+# 43 "../src/Vec2.cu"
+{
+# 44 "../src/Vec2.cu"
+(((this->data)[__cuda_local_var_79795_15_non_const_i]).x) = ((__cuda_local_var_79794_16_non_const__vecPtr[__cuda_local_var_79795_15_non_const_i]).x);
+# 45 "../src/Vec2.cu"
+(((this->data)[__cuda_local_var_79795_15_non_const_i]).y) = ((__cuda_local_var_79794_16_non_const__vecPtr[__cuda_local_var_79795_15_non_const_i]).y);
+# 47 "../src/Vec2.cu"
+}
+# 48 "../src/Vec2.cu"
+} 
+# 48 "../src/Vec2.cu"
+}}
+# 50 "../src/Vec2.cu"
+___device__( __no_sc__) void _ZN4Vec2C2ERKS_(
+# 50 "../src/Vec2.cu"
+struct Vec2 *const this, 
+# 50 "../src/Vec2.cu"
+const struct Vec2 *__T27){
+# 50 "../src/Vec2.cu"
+{
+# 50 "../src/Vec2.cu"
+{
+# 50 "../src/Vec2.cu"
+_ZN4Vec2C1ERKS_(this, __T27);
+# 50 "../src/Vec2.cu"
+} 
+# 50 "../src/Vec2.cu"
+}}
+# 16 "../src/Vec2.cu"
+___device__( __no_sc__) void _ZN4Vec2C1Eii(
+# 16 "../src/Vec2.cu"
+struct Vec2 *const this, 
+# 16 "../src/Vec2.cu"
+int width, 
+# 16 "../src/Vec2.cu"
+int height){
+# 16 "../src/Vec2.cu"
+{
+# 16 "../src/Vec2.cu"
+{
+# 17 "../src/Vec2.cu"
+(this->imWidth) = width;
+# 18 "../src/Vec2.cu"
+(this->imHeight) = height;
+# 19 "../src/Vec2.cu"
+(this->imSize) = ((size_t)((this->imWidth) * (this->imHeight)));
+# 20 "../src/Vec2.cu"
+(this->data) = ((struct float2 *)(malloc(((this->imSize) * 8UL))));
+# 21 "../src/Vec2.cu"
+} 
+# 21 "../src/Vec2.cu"
+}}
+# 23 "../src/Vec2.cu"
+___device__( __no_sc__) void _ZN4Vec2C2Eii(
+# 23 "../src/Vec2.cu"
+struct Vec2 *const this, 
+# 23 "../src/Vec2.cu"
+int __T28, 
+# 23 "../src/Vec2.cu"
+int __T29){
+# 23 "../src/Vec2.cu"
+{
+# 23 "../src/Vec2.cu"
+{
+# 23 "../src/Vec2.cu"
+_ZN4Vec2C1Eii(this, __T28, __T29);
+# 23 "../src/Vec2.cu"
+} 
+# 23 "../src/Vec2.cu"
+}}
+# 23 "../src/Vec2.cu"
+___device__( __no_sc__) void _ZN4Vec2C1Ev(
+# 23 "../src/Vec2.cu"
+struct Vec2 *const this){
+# 23 "../src/Vec2.cu"
+{
+# 23 "../src/Vec2.cu"
+{
+# 24 "../src/Vec2.cu"
+(this->data) = ((struct float2 *)0LL);
+# 25 "../src/Vec2.cu"
+(this->imHeight) = 0;
+# 26 "../src/Vec2.cu"
+(this->imWidth) = 0;
+# 27 "../src/Vec2.cu"
+(this->imSize) = 0UL;
+# 29 "../src/Vec2.cu"
+} 
+# 29 "../src/Vec2.cu"
+}}
+# 31 "../src/Vec2.cu"
+___device__( __no_sc__) void _ZN4Vec2C2Ev(
+# 31 "../src/Vec2.cu"
+struct Vec2 *const this){
+# 31 "../src/Vec2.cu"
+{
+# 31 "../src/Vec2.cu"
+{
+# 31 "../src/Vec2.cu"
+_ZN4Vec2C1Ev(this);
+# 31 "../src/Vec2.cu"
+} 
+# 31 "../src/Vec2.cu"
+}}
+# 50 "../src/Vec2.cu"
+___device__( __no_sc__) void _ZN4Vec2D1Ev(
+# 50 "../src/Vec2.cu"
+struct Vec2 *const this){
+# 50 "../src/Vec2.cu"
+{
+# 50 "../src/Vec2.cu"
+{
+# 51 "../src/Vec2.cu"
+free(((void *)(this->data)));
+# 52 "../src/Vec2.cu"
+(this->data) = ((struct float2 *)0LL);
+# 53 "../src/Vec2.cu"
+} 
+# 53 "../src/Vec2.cu"
+}}
+# 55 "../src/Vec2.cu"
+___device__( __no_sc__) void _ZN4Vec2D2Ev(
+# 55 "../src/Vec2.cu"
+struct Vec2 *const this){
+# 55 "../src/Vec2.cu"
+{
+# 55 "../src/Vec2.cu"
+{
+# 55 "../src/Vec2.cu"
+_ZN4Vec2D1Ev(this);
+# 55 "../src/Vec2.cu"
+} 
+# 55 "../src/Vec2.cu"
+}}

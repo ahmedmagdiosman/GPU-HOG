@@ -1,0 +1,290 @@
+# 29 "../src/Image3.hpp"
+struct Image3;
+# 212 "/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h" 3
+typedef unsigned long size_t;
+#include "crt/device_runtime.h"
+# 29 "../src/Image3.hpp"
+struct Image3 {
+# 50 "../src/Image3.hpp"
+struct uchar3 *data;
+# 51 "../src/Image3.hpp"
+int imWidth;
+# 52 "../src/Image3.hpp"
+int imHeight;
+# 53 "../src/Image3.hpp"
+size_t imSize;};
+# 180 "/usr/local/cuda-6.5/bin/..//include/crt/device_runtime.h" 3
+___device__(extern  __no_sc__) __attribute__((__externally_visible__)) __attribute__((visibility("default"))) void *malloc(size_t);
+# 181 "/usr/local/cuda-6.5/bin/..//include/crt/device_runtime.h" 3
+___device__(extern  __no_sc__) __attribute__((__externally_visible__)) __attribute__((__nothrow__)) __attribute__((visibility("default"))) void free(void *);
+# 82 "../src/Image3.hpp"
+___device__(extern  __no_sc__) __inline__ int _ZNK6Image35widthEv(const struct Image3 *const);
+# 85 "../src/Image3.hpp"
+___device__(extern  __no_sc__) __inline__ int _ZNK6Image36heightEv(const struct Image3 *const);
+# 92 "../src/Image3.hpp"
+___device__(extern  __no_sc__) __inline__ struct uchar3 *_ZNK6Image311getConstPtrEv(const struct Image3 *const);
+# 74 "../src/Image3.cu"
+___device__(extern  __no_sc__) void _ZN6Image3C1ERKS_(struct Image3 *const, const struct Image3 *);
+# 93 "../src/Image3.cu"
+___device__(extern  __no_sc__) void _ZN6Image3C2ERKS_(struct Image3 *const, const struct Image3 *);
+# 17 "../src/Image3.cu"
+___device__(extern  __no_sc__) void _ZN6Image3C1Eii(struct Image3 *const, int, int);
+# 24 "../src/Image3.cu"
+___device__(extern  __no_sc__) void _ZN6Image3C2Eii(struct Image3 *const, int, int);
+# 66 "../src/Image3.cu"
+___device__(extern  __no_sc__) void _ZN6Image3C1Ev(struct Image3 *const);
+# 74 "../src/Image3.cu"
+___device__(extern  __no_sc__) void _ZN6Image3C2Ev(struct Image3 *const);
+# 93 "../src/Image3.cu"
+___device__(extern  __no_sc__) void _ZN6Image3D1Ev(struct Image3 *const);
+# 98 "../src/Image3.cu"
+___device__(extern  __no_sc__) void _ZN6Image3D2Ev(struct Image3 *const);
+#include "common_functions.h"
+# 82 "../src/Image3.hpp"
+ __attribute__((nv_linkonce_odr)) ___device__( __no_sc__) __inline__ int _ZNK6Image35widthEv(
+# 82 "../src/Image3.hpp"
+const struct Image3 *const this){
+# 82 "../src/Image3.hpp"
+{
+# 82 "../src/Image3.hpp"
+{
+# 82 "../src/Image3.hpp"
+ int __T24;
+# 82 "../src/Image3.hpp"
+{
+# 83 "../src/Image3.hpp"
+if (!(this))
+# 83 "../src/Image3.hpp"
+{
+# 83 "../src/Image3.hpp"
+__T24 = 0;
+# 83 "../src/Image3.hpp"
+}
+# 83 "../src/Image3.hpp"
+return this->imWidth;
+# 83 "../src/Image3.hpp"
+}
+# 84 "../src/Image3.hpp"
+}
+# 84 "../src/Image3.hpp"
+}}
+# 85 "../src/Image3.hpp"
+ __attribute__((nv_linkonce_odr)) ___device__( __no_sc__) __inline__ int _ZNK6Image36heightEv(
+# 85 "../src/Image3.hpp"
+const struct Image3 *const this){
+# 85 "../src/Image3.hpp"
+{
+# 85 "../src/Image3.hpp"
+{
+# 85 "../src/Image3.hpp"
+ int __T25;
+# 85 "../src/Image3.hpp"
+{
+# 86 "../src/Image3.hpp"
+if (!(this))
+# 86 "../src/Image3.hpp"
+{
+# 86 "../src/Image3.hpp"
+__T25 = 0;
+# 86 "../src/Image3.hpp"
+}
+# 86 "../src/Image3.hpp"
+return this->imHeight;
+# 86 "../src/Image3.hpp"
+}
+# 87 "../src/Image3.hpp"
+}
+# 87 "../src/Image3.hpp"
+}}
+# 92 "../src/Image3.hpp"
+ __attribute__((nv_linkonce_odr)) ___device__( __no_sc__) __inline__ struct uchar3 *_ZNK6Image311getConstPtrEv(
+# 92 "../src/Image3.hpp"
+const struct Image3 *const this){
+# 92 "../src/Image3.hpp"
+{
+# 92 "../src/Image3.hpp"
+{
+# 92 "../src/Image3.hpp"
+ int __T26;
+# 92 "../src/Image3.hpp"
+{
+# 93 "../src/Image3.hpp"
+if (!(this))
+# 93 "../src/Image3.hpp"
+{
+# 93 "../src/Image3.hpp"
+__T26 = 0;
+# 93 "../src/Image3.hpp"
+}
+# 93 "../src/Image3.hpp"
+return this->data;
+# 93 "../src/Image3.hpp"
+}
+# 94 "../src/Image3.hpp"
+}
+# 94 "../src/Image3.hpp"
+}}
+# 74 "../src/Image3.cu"
+___device__( __no_sc__) void _ZN6Image3C1ERKS_(
+# 74 "../src/Image3.cu"
+struct Image3 *const this, 
+# 74 "../src/Image3.cu"
+const struct Image3 *_img){
+# 74 "../src/Image3.cu"
+{
+# 76 "../src/Image3.cu"
+{
+# 84 "../src/Image3.cu"
+ const struct uchar3 *__cuda_local_var_79853_16_non_const__imgPtr;
+# 85 "../src/Image3.cu"
+ unsigned __cuda_local_var_79854_15_non_const_i;
+# 78 "../src/Image3.cu"
+(this->imWidth) = (_ZNK6Image35widthEv(_img));
+# 79 "../src/Image3.cu"
+(this->imHeight) = (_ZNK6Image36heightEv(_img));
+# 80 "../src/Image3.cu"
+(this->imSize) = ((size_t)((this->imWidth) * (this->imHeight)));
+# 81 "../src/Image3.cu"
+(this->data) = ((struct uchar3 *)(malloc(((this->imSize) * 3UL))));
+# 84 "../src/Image3.cu"
+__cuda_local_var_79853_16_non_const__imgPtr = ((const struct uchar3 *)(_ZNK6Image311getConstPtrEv(_img)));
+# 85 "../src/Image3.cu"
+__cuda_local_var_79854_15_non_const_i = 0U;
+# 86 "../src/Image3.cu"
+for (__cuda_local_var_79854_15_non_const_i = 0U; (((unsigned long)__cuda_local_var_79854_15_non_const_i) < (this->imSize)); __cuda_local_var_79854_15_non_const_i++)
+# 86 "../src/Image3.cu"
+{
+# 87 "../src/Image3.cu"
+(((this->data)[__cuda_local_var_79854_15_non_const_i]).x) = ((__cuda_local_var_79853_16_non_const__imgPtr[__cuda_local_var_79854_15_non_const_i]).x);
+# 88 "../src/Image3.cu"
+(((this->data)[__cuda_local_var_79854_15_non_const_i]).y) = ((__cuda_local_var_79853_16_non_const__imgPtr[__cuda_local_var_79854_15_non_const_i]).y);
+# 89 "../src/Image3.cu"
+(((this->data)[__cuda_local_var_79854_15_non_const_i]).z) = ((__cuda_local_var_79853_16_non_const__imgPtr[__cuda_local_var_79854_15_non_const_i]).z);
+# 90 "../src/Image3.cu"
+}
+# 91 "../src/Image3.cu"
+} 
+# 91 "../src/Image3.cu"
+}}
+# 93 "../src/Image3.cu"
+___device__( __no_sc__) void _ZN6Image3C2ERKS_(
+# 93 "../src/Image3.cu"
+struct Image3 *const this, 
+# 93 "../src/Image3.cu"
+const struct Image3 *__T27){
+# 93 "../src/Image3.cu"
+{
+# 93 "../src/Image3.cu"
+{
+# 93 "../src/Image3.cu"
+_ZN6Image3C1ERKS_(this, __T27);
+# 93 "../src/Image3.cu"
+} 
+# 93 "../src/Image3.cu"
+}}
+# 17 "../src/Image3.cu"
+___device__( __no_sc__) void _ZN6Image3C1Eii(
+# 17 "../src/Image3.cu"
+struct Image3 *const this, 
+# 17 "../src/Image3.cu"
+int width, 
+# 17 "../src/Image3.cu"
+int height){
+# 17 "../src/Image3.cu"
+{
+# 17 "../src/Image3.cu"
+{
+# 18 "../src/Image3.cu"
+(this->imWidth) = width;
+# 19 "../src/Image3.cu"
+(this->imHeight) = height;
+# 20 "../src/Image3.cu"
+(this->imSize) = ((size_t)((this->imWidth) * (this->imHeight)));
+# 21 "../src/Image3.cu"
+(this->data) = ((struct uchar3 *)(malloc(((this->imSize) * 3UL))));
+# 22 "../src/Image3.cu"
+} 
+# 22 "../src/Image3.cu"
+}}
+# 24 "../src/Image3.cu"
+___device__( __no_sc__) void _ZN6Image3C2Eii(
+# 24 "../src/Image3.cu"
+struct Image3 *const this, 
+# 24 "../src/Image3.cu"
+int __T213, 
+# 24 "../src/Image3.cu"
+int __T214){
+# 24 "../src/Image3.cu"
+{
+# 24 "../src/Image3.cu"
+{
+# 24 "../src/Image3.cu"
+_ZN6Image3C1Eii(this, __T213, __T214);
+# 24 "../src/Image3.cu"
+} 
+# 24 "../src/Image3.cu"
+}}
+# 66 "../src/Image3.cu"
+___device__( __no_sc__) void _ZN6Image3C1Ev(
+# 66 "../src/Image3.cu"
+struct Image3 *const this){
+# 66 "../src/Image3.cu"
+{
+# 66 "../src/Image3.cu"
+{
+# 67 "../src/Image3.cu"
+(this->data) = ((struct uchar3 *)0LL);
+# 68 "../src/Image3.cu"
+(this->imHeight) = 0;
+# 69 "../src/Image3.cu"
+(this->imWidth) = 0;
+# 70 "../src/Image3.cu"
+(this->imSize) = 0UL;
+# 72 "../src/Image3.cu"
+} 
+# 72 "../src/Image3.cu"
+}}
+# 74 "../src/Image3.cu"
+___device__( __no_sc__) void _ZN6Image3C2Ev(
+# 74 "../src/Image3.cu"
+struct Image3 *const this){
+# 74 "../src/Image3.cu"
+{
+# 74 "../src/Image3.cu"
+{
+# 74 "../src/Image3.cu"
+_ZN6Image3C1Ev(this);
+# 74 "../src/Image3.cu"
+} 
+# 74 "../src/Image3.cu"
+}}
+# 93 "../src/Image3.cu"
+___device__( __no_sc__) void _ZN6Image3D1Ev(
+# 93 "../src/Image3.cu"
+struct Image3 *const this){
+# 93 "../src/Image3.cu"
+{
+# 93 "../src/Image3.cu"
+{
+# 94 "../src/Image3.cu"
+free(((void *)(this->data)));
+# 95 "../src/Image3.cu"
+(this->data) = ((struct uchar3 *)0LL);
+# 96 "../src/Image3.cu"
+} 
+# 96 "../src/Image3.cu"
+}}
+# 98 "../src/Image3.cu"
+___device__( __no_sc__) void _ZN6Image3D2Ev(
+# 98 "../src/Image3.cu"
+struct Image3 *const this){
+# 98 "../src/Image3.cu"
+{
+# 98 "../src/Image3.cu"
+{
+# 98 "../src/Image3.cu"
+_ZN6Image3D1Ev(this);
+# 98 "../src/Image3.cu"
+} 
+# 98 "../src/Image3.cu"
+}}
