@@ -9,9 +9,9 @@ Run the included makefiles (in Release/Debug).
 
 ## Usage
 Run:
-./Debug/HOGCUDA <image name>
+./Debug/HOGCUDA [image name]
 or
-./Release/HOGCUDA <image name>
+./Release/HOGCUDA [image name]
 
 ## Bugs
 Gaussian weights for the block edges are not implemented.
