@@ -4,22 +4,22 @@ An GPU implementation of Histogram of Oriented Gradients [Dalal 2005] with the d
 
 ## Installation
 
-Make sure X11 libraries are installed. They are needed for CImg to compile.
-Run the included makefiles (in Release/Debug).
+* Make sure X11 libraries are installed. They are needed for CImg to compile.
+* Run the included makefiles (in Release/Debug).
 
 ## Usage
 Run:
-./Debug/HOGCUDA [image name]
+* ./Debug/HOGCUDA [image name]
 or
-./Release/HOGCUDA [image name]
+* ./Release/HOGCUDA [image name]
 
 ## Bugs
-Gaussian weights for the block edges are not implemented.
-Kernel fails to launch for tiny images.
+* Gaussian weights for the block edges are not implemented.
+* Kernel fails to launch for tiny images.
 
 ## Environment
-Compiled with Nsight with gcc 4.8, CUDA 6.5, NVIDIA driver 340.65 
-Debian Jessie (testing) on a GTX 780
+* Compiled with Nsight with gcc 4.8, CUDA 6.5, NVIDIA driver 340.65 
+* Debian Jessie (testing) on a GTX 780
 
 ## License
 
