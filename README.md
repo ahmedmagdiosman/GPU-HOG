@@ -14,8 +14,9 @@ Run:
 or
 * ./Release/HOGCUDA [image name]
 
-## Bugs
+## Issues/Bugs
 * Gaussian weights for the block edges are not implemented.
+* Only RGB images are supported
 * Kernel fails to launch for tiny images.
 
 ## Environment
