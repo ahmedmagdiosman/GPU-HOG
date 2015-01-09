@@ -1,6 +1,6 @@
 # CUDA HOG
 
-A GPU implementation of Histogram of Oriented Gradients [Dalal 2005] with the default parameters. The algorithm uses a sliding window on the image to generate the histograms. The feature vectors is saved under "GPU_features" and the gradient magnitude-and-angle calculation step is saved in "gradient.txt", it's not pretty though :P
+A GPU implementation of Histogram of Oriented Gradients [Dalal 2005] with the default parameters. The algorithm uses a sliding window on the image to generate the histograms. The feature vectors are saved under "GPU_features" and the gradient magnitude-and-angle calculation step is saved in "gradient.txt", it's not pretty though :P
 
 ## Installation
 * CImg is needed to read images from disk. It is already included.
